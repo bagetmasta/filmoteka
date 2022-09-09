@@ -1,0 +1,21 @@
+.header-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  width: map-get($breakpoints, 'mobile-sm');
+
+  //  @include mobile {
+  //   width: map-get($breakpoints, 'mobile');
+  //   padding: 40px 32px 0 32px;
+  // }
+
+  @include tablet {
+    width: map-get($breakpoints, 'tablet');
+    padding: 40px;
+  }
+
+  @include desktop {
+    width: map-get($breakpoints, 'desktop');
+    padding-top: 40px;
+  }
+}
