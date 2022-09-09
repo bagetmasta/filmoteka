@@ -7,7 +7,7 @@
     @extend .header--common;
     height: 230px;
 
-    @include x2 {
+    @include x1 {
         @include header($url: '/src/images/library/library_sm.jpg');
     }
 
@@ -15,7 +15,6 @@
         @include header($url: '/src/images/library/library_sm@2.jpg');
     }
 
-    
 
     @include tablet {
         height: 216px;
@@ -27,10 +26,7 @@
             );
         }
 
-
     }
-
-
 
     @include desktop {
         @include header($url: '/src/images/library/library_lg.jpg'
@@ -44,9 +40,94 @@
     }
 }
 
-.header-container {
+.header-container__library {
     padding-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+}
+
+.logo__name {
+    margin-left: 10px;
+    font-size: 30px;
+    display: none;
+    color: $color--accent-text;
+
+    @include tablet {
+        display: inline-block;
+    }
+}
+
+.header-nav__menu {
+    display: flex;
+}
+
+.header-nav__item:not(:last-child) {
+    margin-right: 39px;
+}
+
+.header-nav__link {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: #FFFFFF;
+}
+
+.header-nav__link-current {
+    border-bottom: 1px solid rgba(255, 107, 1, 1);
+}
+
+.library__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.button {
+    width: 148px;
+    height: 42px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    box-shadow: (0px 8px 43px rgba(255, 107, 1, 0.6));
+}
+
+.button-current {
+    background-color: rgba(255, 107, 1, 1);
+}
+
+.button__text {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.button:focus,
+.button:hover {
+    border: 1px solid rgb(91, 13, 216);
 }
