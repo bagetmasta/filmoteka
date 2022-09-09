@@ -18,3 +18,44 @@
     @content;
   }
 }
+
+// Header
+@mixin x1 {
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 1),
+  only screen and (min--moz-device-pixel-ratio: 1),
+  only screen and (-o-min-device-pixel-ratio: 1/1),
+  only screen and (min-device-pixel-ratio: 1),
+  only screen and (min-resolution: 96dpi),
+  only screen and (min-resolution: 1dppx) {
+    @content;
+  }
+}
+
+@mixin x2 {
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin x3 {
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3),
+  only screen and (min--moz-device-pixel-ratio: 3),
+  only screen and (-o-min-device-pixel-ratio: 3/1),
+  only screen and (min-device-pixel-ratio: 3),
+  only screen and (min-resolution: 458dpi),
+  only screen and (min-resolution: 3dppx) {
+    @content;
+  }
+}
+
+@mixin header($url: '../images/background/mobile/main-1x.png') {
+  background: $color--default-text url($url) 0 0 / cover no-repeat;
+}
