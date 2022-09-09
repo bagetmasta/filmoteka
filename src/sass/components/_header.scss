@@ -1,0 +1,172 @@
+.header--common {
+  flex: 0 0 auto;
+  min-height: 230px;
+}
+
+.header {
+  @extend .header--common;
+  height: 230px;
+
+ @include x2 {
+    @include header($url: '/src/images/background/mobile/main-x1.jpg');
+  }
+
+  @include x2 {
+    @include header($url: '/src/images/background/mobile/main-x2.jpg');
+  }
+
+  @include x3 {
+    @include header($url: '/src/images/background/mobile/main-x3.jpg');
+  }
+
+  @include tablet {
+    height: 216px;
+
+    @include header($url: '/src/images/background/tablet/main-x1.jpg');
+
+    @include x2 {
+      @include header($url: '/src/images/background/tablet/main-x2.jpg'
+      );
+    }
+
+    @include x3 {
+      @include header($url: '/src/images/background/tablet/main-x3.jpg'
+      );
+    }
+  }
+
+  @include desktop {
+    @include header($url: '/src/images/background/desktop/main-x1.jpg'
+    );
+
+    @include x2 {
+      @include header($url: '/src/images/background/desktop/main-x2.jpg'
+      );
+    }
+
+    @include x3 {
+      @include header($url: '/src/images/background/desktop/main-x3.jpg'
+      );
+    }
+  }
+}
+
+.header-container {
+    padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-inner {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  margin-left: 10px;
+  font-size: 30px;
+  display: none;
+  color: $color--accent-text;
+
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.icon-film {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: $color--accent-text;
+}
+
+.header-nav {
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-transform: uppercase;
+    color: $color--accent-text;
+    font-size: 12px;
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .current {
+    &::before {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      content: '';
+
+      background-color: #ff001b;
+    }
+  }
+}
+
+.search-bar {
+  max-width: 370px;
+  margin: 60px auto 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid $color--background;
+
+  input {
+    background: transparent;
+    flex: 1;
+    outline: none;
+    border: 0;
+    font-size: 14px;
+    color: $color--accent-text;
+  }
+
+  ::placeholder {
+    color: $color--background;
+  }
+}
+
+.search-btn {
+  border: 0;
+  width: 22px;
+  height: 22px;
+  background: transparent;
+}
+
+.search-icon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  fill: $color--background;
+}
+
+.input-error {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  margin-top: 20px;
+  color: $color--error-text;
+}
+
+// hiden text error
+.hide {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
