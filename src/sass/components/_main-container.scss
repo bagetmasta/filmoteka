@@ -15,7 +15,8 @@
   }
 }
 
-.filmoteka__cards {
+.filmoteka__cards,
+.my-library__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -25,22 +26,20 @@
   }
 }
 
-.filmoteka__card {
-  border: 1px solid red;
-  height: 350px;
-
+.filmoteka__card,
+.my-library__card {
   @include mobile {
-    width: calc(100% - 2 * 20px);
+    width: 100%;
     margin-bottom: 20px;
   }
 
   @include tablet {
-    width: calc((100% - 4 * 16px) / 2);
+    width: calc((100% - 6 * 16px) / 2);
     margin: 16px;
   }
 
   @include desktop {
-    width: calc((100% - 6 * 16px) / 3);
+    width: calc((100% - 8 * 16px) / 3);
   }
 }
 
