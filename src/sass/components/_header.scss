@@ -28,13 +28,15 @@
       @include header($url: '/src/images/background/tablet/main-x2.jpg'
       );
     }
-    
+
 
     @include x3 {
       @include header($url: '/src/images/background/tablet/main-x3.jpg'
       );
     }
   }
+
+  
 
   @include desktop {
     @include header($url: '/src/images/background/desktop/main-x1.jpg'
