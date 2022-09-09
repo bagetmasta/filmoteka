@@ -1,0 +1,31 @@
+<svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="arrow-left">
+    <path d="M3.33329 8H12.6666" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M7.99996 12.6667L12.6666 8.00004L7.99996 3.33337" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="arrow-right">
+    <path d="M12.6667 8H3.33337" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M8.00004 12.6667L3.33337 8.00004L8.00004 3.33337" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="film">
+    <path d="M19.82 2H4.18C2.97602 2 2 2.97602 2 4.18V19.82C2 21.024 2.97602 22 4.18 22H19.82C21.024 22 22 21.024 22 19.82V4.18C22 2.97602 21.024 2 19.82 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M7 2V22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M17 2V22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M2 12H22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M2 7H7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M2 17H7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M17 17H22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M17 7H22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
+  <svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="Lv">
+    <path d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z" fill="#FF6B08"></path>
+  </symbol>
+  <svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="close">
+    <path d="M8 8L22 22" stroke="black" stroke-width="2"></path>
+    <path d="M8 22L22 8" stroke="black" stroke-width="2"></path>
+  </symbol>
+</svg>
+</svg>
+</svg>
