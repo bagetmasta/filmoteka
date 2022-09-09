@@ -12,7 +12,7 @@
     }
 
     @include x2 {
-        @include header($url: '/src/images/library/library_sm@2.jpg');
+        @include header($url: '/src/images/library/library_sm@2x.jpg');
     }
 
 
@@ -22,7 +22,7 @@
         @include header($url: '/src/images/library/library_md.jpg');
 
         @include x2 {
-            @include header($url: '/src/images/library/library_md@2.jpg'
+            @include header($url: '/src/images/library/library_md@2x.jpg'
             );
         }
 
@@ -33,7 +33,7 @@
         );
 
         @include x2 {
-            @include header($url: '/src/images/library/library_lg@2.jpg'
+            @include header($url: '/src/images/library/library_lg@2x.jpg'
             );
         }
 
