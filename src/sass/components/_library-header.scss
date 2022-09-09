@@ -3,36 +3,36 @@
     min-height: 230px;
 }
 
-.header {
+.header-library {
     @extend .header--common;
     height: 230px;
 
     @include x1 {
-        @include header($url: '/src/images/library/library_sm.jpg');
+        @include header-library($url: '/src/images/library/library_sm.jpg');
     }
 
     @include x2 {
-        @include header($url: '/src/images/library/library_sm@2x.jpg');
+        @include header-library($url: '/src/images/library/library_sm@2x.jpg');
     }
 
     @include tablet {
         height: 216px;
 
-        @include header($url: '/src/images/library/library_md.jpg');
+        @include header-library($url: '/src/images/library/library_md.jpg');
 
         @include x2 {
-            @include header($url: '/src/images/library/library_md@2x.jpg'
+            @include header-library($url: '/src/images/library/library_md@2x.jpg'
             );
         }
 
     }
 
     @include desktop {
-        @include header($url: '/src/images/library/library_lg.jpg'
+        @include header-library($url: '/src/images/library/library_lg.jpg'
         );
 
         @include x2 {
-            @include header($url: '/src/images/library/library_lg@2x.jpg'
+            @include header-library($url: '/src/images/library/library_lg@2x.jpg'
             );
         }
 
