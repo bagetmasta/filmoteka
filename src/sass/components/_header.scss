@@ -3,7 +3,7 @@
   min-height: 230px;
 }
 
-.header {
+.header-home {
   @extend .header--common;
   height: 230px;
 
@@ -29,14 +29,12 @@
       );
     }
 
-
     @include x3 {
       @include header($url: '/src/images/background/tablet/main-x3.jpg'
       );
     }
   }
 
-  
 
   @include desktop {
     @include header($url: '/src/images/background/desktop/main-x1.jpg'
@@ -54,8 +52,9 @@
   }
 }
 
-.header-container {
-    padding-top: 40px;
+.header-section {
+  padding-top: 40px;
+  margin: 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,6 +63,7 @@
 .logo-inner {
   display: flex;
   align-items: center;
+
 }
 
 .logo-text {
