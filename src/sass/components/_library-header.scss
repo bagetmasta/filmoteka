@@ -78,18 +78,13 @@
 }
 
 .header-nav__link {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
     line-height: 1.17;
     display: flex;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-
-    color: #FFFFFF;
+    color: $color--accent-text;
 }
 
 .header-nav__link-current {
@@ -113,18 +108,15 @@
 }
 
 .button-current {
-    background-color: rgba(255, 107, 1, 1);
+    background-color: $color--accent-orange;
 }
 
 .button__text {
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 12px;
     line-height: 1.33;
     text-align: center;
     text-transform: uppercase;
 
-    color: #FFFFFF;
+    color: $color--accent-text;
 }
 
 .button:focus,
