@@ -1,0 +1,84 @@
+.main-container {
+  min-width: 320px;
+  margin: 0 auto;
+  @include mobile {
+    width: 320px;
+    padding: 20px 20px 40px;
+  }
+
+  @include tablet {
+    width: 768px;
+    padding: 60px 32px 60px;
+  }
+  @include desktop {
+    width: 1280px;
+  }
+}
+
+.filmoteka__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include tablet {
+    margin: -16px;
+  }
+}
+
+.filmoteka__card {
+  border: 1px solid red;
+  height: 350px;
+
+  @include mobile {
+    width: calc(100% - 2 * 20px);
+    margin-bottom: 20px;
+  }
+
+  @include tablet {
+    width: calc((100% - 4 * 16px) / 2);
+    margin: 16px;
+  }
+
+  @include desktop {
+    width: calc((100% - 6 * 16px) / 3);
+  }
+}
+
+// .filmoteka__button {
+//   display: flex;
+//   align-items: center;
+//   margin: 0 auto;
+//   padding: 11px 13px;
+//   height: 40px;
+//   font-size: 12px;
+//   line-height: 1.33;
+//   color: inherit;
+//   color: $color--accent-text;
+//   border-color: $color--selected-page;
+//   background-color: $color--selected-page;
+//   border-radius: 5px;
+
+//   @include mobile {
+//     margin-top: 20px;
+//   }
+
+//   @include tablet {
+//     margin-top: 60px;
+//   }
+// }
+#tui-pagination-container strong {
+  background: $color--selected-page;
+  border-color: $color--selected-page;
+}
+
+#tui-pagination-container .tui-page-btn {
+  width: 40px;
+  height: 40px;
+  padding: 13px 11px;
+  border-color: transparent;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
