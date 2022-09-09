@@ -1,6 +1,14 @@
 @import './base/reset';
 @import './base/common';
-@import './utils/mixin';
 @import './utils/extends';
-@import "./modal";
-@import './example';
+@import './utils/mixins';
+@import './utils/placeholders';
+@import './utils/variables';
+@import './components/logo';
+@import './components/header';
+@import './components/footer';
+@import './components/body';
+@import './components/main-container';
+@import './components/film-box';
+@import './components/my-library-container';
+@import './components/modal-film';
