@@ -1,0 +1,52 @@
+.header--common {
+    flex: 0 0 auto;
+    min-height: 230px;
+}
+
+.header {
+    @extend .header--common;
+    height: 230px;
+
+    @include x2 {
+        @include header($url: '/src/images/library/library_sm.jpg');
+    }
+
+    @include x2 {
+        @include header($url: '/src/images/library/library_sm@2.jpg');
+    }
+
+    
+
+    @include tablet {
+        height: 216px;
+
+        @include header($url: '/src/images/library/library_md.jpg');
+
+        @include x2 {
+            @include header($url: '/src/images/library/library_md@2.jpg'
+            );
+        }
+
+
+    }
+
+
+
+    @include desktop {
+        @include header($url: '/src/images/library/library_lg.jpg'
+        );
+
+        @include x2 {
+            @include header($url: '/src/images/library/library_lg@2.jpg'
+            );
+        }
+
+    }
+}
+
+.header-container {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
