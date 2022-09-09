@@ -59,3 +59,7 @@
 @mixin header($url: '../images/background/mobile/main-1x.png') {
   background: $color--default-text url($url) 0 0 / cover no-repeat;
 }
+
+@mixin header-library($url: '../images/library/library_sm.jpg') {
+  background: $color--default-text url($url) 0 0 / cover no-repeat;
+}
