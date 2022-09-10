@@ -19,7 +19,7 @@ function renderMarkup(films) {
                         <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
                     </picture>
                     <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> Drama, Action |
-                        ${release_date}</span><span class="card-list__ratimg">${vote_average}</span></h2>
+                        ${release_date}<span class="card-list__ratimg">${vote_average}</span></h2>
                 </a>
             </li>`;
     })
