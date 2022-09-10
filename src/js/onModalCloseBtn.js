@@ -17,8 +17,7 @@ function onClickClose(e) {
 
 export function onEscapeClose() {
   window.addEventListener('keydown', e => {
+    console.log(e);
     if (e.code === 'Escape') return filmModal.classList.add('is-hidden');
   });
-
-  removeEventListener('keydown', window);
 }

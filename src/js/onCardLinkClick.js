@@ -14,4 +14,5 @@ export default function onCardLinkClick(e) {
   if (!filmModal.classList.contains('is-hidden')) {
     onEscapeClose();
   }
+  removeEventListener('keydown', window);
 }
