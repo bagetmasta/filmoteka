@@ -6,7 +6,8 @@ fetch(
   'https://api.themoviedb.org/3/trending/movie/day?api_key=dfb50cc3b16f950a5a6b0ea437e17f05'
 )
   .then(r => r.json())
-  .then(({ results }) => renderMarkup(results));
+  .then(({ results }) => renderMarkup(results))
+  .catch(console.log);
 
 function renderMarkup(films) {
   const newMarkup = films
