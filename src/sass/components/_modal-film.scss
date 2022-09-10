@@ -1,26 +1,27 @@
 .backdrop {
-  position: absolute;
-  width: 100%;
-  height: 200%;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
   top: 0%;
   left: 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: transform 250ms;
   transition: opacity 250ms, visibility 250ms;
   background: rgba(0, 0, 0, 0.2);
-
-  @include mobile {
-    position: absolute;
-  }
+  z-index: 2;
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  scale: 0;
 }
 
 .modal {
   position: absolute;
-  top: 41%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: transform 250ms;
@@ -31,19 +32,21 @@
   border-radius: 4px;
 
   @include mobile {
-    position: absolute;
+    top: 80%;
     min-width: 280px;
     max-width: 480px;
     padding: 48px 20px 40px 20px;
   }
 
   @include tablet {
+    top: 50%;
     min-width: 704px;
     max-width: 1279px;
     padding: 40px 72px 40px 36px;
   }
 
   @include desktop {
+    top: 50%;
     min-width: 806px;
     padding: 40px 12px 40px 12px;
   }
