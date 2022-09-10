@@ -2,14 +2,18 @@ const refs = {
   cardList: document.querySelector('.card-list'),
 };
 
-fetch(
-  'https://api.themoviedb.org/3/trending/movie/day?api_key=dfb50cc3b16f950a5a6b0ea437e17f05'
-)
-  .then(r => r.json())
-  .then(({ results }) => renderMarkup(results))
-  .catch(console.log);
+export function fetchPopularFilms() {
+  fetch(
+    'https://api.themoviedb.org/3/trending/movie/day?api_key=dfb50cc3b16f950a5a6b0ea437e17f05'
+  )
+    .then(r => r.json())
+    .then(({ results }) => renderMarkup(results))
+    .catch(console.log);
+}
 
-function renderMarkup(films) {
+fetchPopularFilms();
+
+export function renderMarkup(films) {
   const newMarkup = films
     .map(film => {
       const { original_title, poster_path, vote_average, release_date } = film;
