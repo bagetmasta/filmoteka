@@ -11,9 +11,9 @@ refs.input.addEventListener('input', _.debounce(fetchFilms, DEBOUNCE_DELAY));
 function fetchFilms(film) {
   const filmName = film.target.value.trim();
 
-  // console.log(filmName);
+  console.log(filmName);
 
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${filmName}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`
-  );
+  // return fetch(
+  //   `https://api.themoviedb.org/3/movie/${filmName}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`
+  // );
 }
