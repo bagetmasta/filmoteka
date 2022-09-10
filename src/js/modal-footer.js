@@ -4,9 +4,9 @@ const refs = {
   backdrops: document.querySelector('.backdrops__modal'),
 };
 
-console.log(refs.openModalBtn);
-console.log(refs.onModalCloseBtn);
-console.log(refs.backdrops);
+// console.log(refs.openModalBtn);
+// console.log(refs.onModalCloseBtn);
+// console.log(refs.backdrops);
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
 refs.onModalCloseBtn.addEventListener('click', onCloseModal);
