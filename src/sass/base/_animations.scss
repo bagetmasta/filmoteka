@@ -1,0 +1,32 @@
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px #FF6B09; }
+  50% { box-shadow: 0 0 25px #fd7921; }
+  100% { box-shadow: 0 0 5px #fa8a40; }
+}
+
+@keyframes glowing-icon {
+  0% { fill: #FF6B09; }
+  50% { fill: #fd7921; }
+  100% { fill: #66ea3d; }
+}
+
+@keyframes glowing-text {
+  0% { color: #FF6B09; }
+  50% { color: #fd7921; }
+  100% { color: #66ea3d; }
+}
+
+.button-up,
+#toTop {
+    animation: glowing 1300ms infinite;
+}
+
+
+.program__list::after {
+    animation: glowing 1300ms infinite;
+}
+
+
+.accent-text {
+    animation: glowing-text 1300ms infinite;
+}

@@ -13,7 +13,7 @@ function fetchFilms(film) {
   const filmName = film.target.value.trim();
 
   if (filmName === '') {
-    fetchPopularFilms();
+    return fetchPopularFilms();
   }
 
   return fetchNecessaryFilm(filmName);
