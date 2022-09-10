@@ -12,7 +12,6 @@ function renderMarkup(films) {
   const newMarkup = films
     .map(film => {
       const { original_title, poster_path, vote_average, release_date } = film;
-      // console.log(film.title);
 
       return ` <li class="card-list__item">
                 <a href="" class="card-list__link">
