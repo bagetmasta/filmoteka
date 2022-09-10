@@ -1,3 +1,4 @@
+import { onEscapeClose } from './onModalCloseBtn';
 const refs = {
   cardList: document.querySelector('.card-list'),
 };
@@ -27,4 +28,19 @@ function renderMarkup(films) {
     .join('');
 
   refs.cardList.innerHTML = newMarkup;
+  const cardLinks = document.querySelectorAll('.card-list__link');
+  const filmModal = document.querySelector('.backdrop');
+
+  for (let cardLink of cardLinks) {
+    cardLink.addEventListener('click', onCardLinkClick);
+  }
+
+    function onCardLinkClick(e) {
+    e.preventDefault();
+    filmModal.classList.remove('is-hidden');
+
+    if (!filmModal.classList.contains('is-hidden')) {
+      onEscapeClose();
+    }
+  }
 }
