@@ -11,8 +11,7 @@ export default function onCardLinkClick(e) {
   e.preventDefault();
   filmModal.classList.remove('is-hidden');
   // ===
-  // if (!filmModal.classList.contains('is-hidden')) {
-  //   onEscapeClose();
-  // }
-  // // removeEventListener('keydown', window);
+  if (!filmModal.classList.contains('is-hidden')) {
+    onEscapeClose();
+  }
 }
