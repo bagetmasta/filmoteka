@@ -39,7 +39,7 @@ export function renderMarkup(films) {
     cardLink.addEventListener('click', onCardLinkClick);
   }
 
-    function onCardLinkClick(e) {
+  function onCardLinkClick(e) {
     e.preventDefault();
     filmModal.classList.remove('is-hidden');
 

@@ -1,20 +1,24 @@
 const refs = {
   openModalBtn: document.querySelector('[data-modal-open-contacts]'),
-  closeModalBtn: document.querySelector('[data-modal-close-contacts]'),
-  backdrop: document.querySelector('.backdrop__modal'),
+  onModalCloseBtn: document.querySelector('[data-modal-contacts-closed]'),
+  backdrops: document.querySelector('.backdrops__modal'),
 };
 
+// console.log(refs.openModalBtn);
+// console.log(refs.onModalCloseBtn);
+// console.log(refs.backdrops);
+
 refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onClickBackdrop);
+refs.onModalCloseBtn.addEventListener('click', onCloseModal);
+refs.backdrops.addEventListener('click', onClickBackdrop);
 
 function onOpenModal() {
-  refs.backdrop.classList.remove('is-hidden');
+  refs.backdrops.classList.remove('is-hiddents');
   window.addEventListener('keydown', onPressESC);
 }
 
 function onCloseModal() {
-  refs.backdrop.classList.add('is-hidden');
+  refs.backdrops.classList.add('is-hiddents');
   window.removeEventListener('keydown', onPressESC);
 }
 
