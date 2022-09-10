@@ -5,7 +5,7 @@ for (let cardLink of cardLinks) {
   cardLink.addEventListener('click', onCardLinkClick);
 }
 
- export default function onCardLinkClick(e) {
-    e.preventDefault();
-    filmModal.classList.remove('is-hidden');
-};
+export default function onCardLinkClick(e) {
+  e.preventDefault();
+  filmModal.classList.remove('is-hidden');
+}
