@@ -1,10 +1,10 @@
-.library__header-common {
+.header-library--common {
     flex: 0 0 auto;
     min-height: 230px;
 }
 
 .header-library {
-    @extend .library__header-common;
+    @extend .header-library--common;
     height: 230px;
 
     @include x1 {
@@ -39,14 +39,14 @@
     }
 }
 
-.header-container__library {
+.header-library__container{
     padding-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding-bottom: 40px;
+    margin: 0 32px;
 }
 
-.header-nav {
+
+.header-library__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +54,7 @@
 
 .logo {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .logo__name {
@@ -88,38 +88,56 @@
 }
 
 .header-nav__link-current {
-    border-bottom: 1px solid rgba(255, 107, 1, 1);
+    border-bottom: 3px solid rgba(255, 0, 27, 1);
 }
 
-.library__buttons {
+.library__buttons__list {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    gap: 16px;
+    
 }
-
-.button {
-    max-width: 152px;
+.library__button {
+    margin: 0 auto;
+    padding: 11px 13px;
     height: 44px;
-    background-color: transparent;
+    width: 152px;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    color: inherit;
+    color: $color--accent-text;
     border: 1px solid rgba(255, 255, 255, 1);
+    background-color: transparent;
     border-radius: 5px;
-    box-shadow: (0px 8px 43px rgba(255, 107, 1, 0.6));
-}
+    gap: 12px;
 
-.button-current {
+    @include mobile {
+        margin-top: 20px;
+        max-width: 129px;
+    }
+
+    @include tablet {
+        margin-top: 60px;
+        
+    }
+
+}
+   
+
+.library__button-current {
     background-color: $color--accent-orange;
 }
 
 .button__text {
     line-height: 1.33;
-    text-align: center;
     text-transform: uppercase;
 
     color: $color--accent-text;
 }
 
-.button:focus,
-.button:hover {
-    border: 1px solid rgb(91, 13, 216);
+.library__button:focus,
+.library__button:hover{
+border: 1px solid rgb(91, 13, 216)
 }
