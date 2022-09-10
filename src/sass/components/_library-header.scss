@@ -1,10 +1,10 @@
-.header--common {
+.library__header-common {
     flex: 0 0 auto;
     min-height: 230px;
 }
 
 .header-library {
-    @extend .header--common;
+    @extend .library__header-common;
     height: 230px;
 
     @include x1 {
@@ -69,6 +69,7 @@
 }
 
 .header-nav__menu {
+   
     display: flex;
 }
 
