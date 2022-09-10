@@ -1,0 +1,29 @@
+// button up
+
+#toTop {
+    width: 30px;
+    height: 30px;
+    font-weight: 700;
+    background: rgba(255, 107, 9, 0.6);
+    color: #fff;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 2;
+    text-align: center;
+    z-index: 10000;
+  }
+
+  .scroll-top {
+    opacity: 1;
+  
+    &.show {
+      opacity: 0;
+    }
+  }
