@@ -2,6 +2,7 @@ import './js/popular-films';
 import './js/movie-search';
 import './js/modal-footer';
 import './js/preloaders';
+import './js/localstorage-btn-watched';
 
 // import onCardLinkClick from './js/onCardLinkClick';
 import onModalCloseBtn from './js/onModalCloseBtn';

@@ -1,6 +1,8 @@
 import { onEscapeClose } from './onModalCloseBtn';
 import renderModal from './render-modal';
 import * as genres from '../genres.json';
+import addToWatchLocaleStorage from './localstorage-btn-watched'
+
 
 const refs = {
   cardList: document.querySelector('.card-list'),
@@ -88,6 +90,16 @@ function fetchModal(id) {
     .then(data => {
     //  renderModal(data)
     refs.filmModal.innerHTML = renderModal(data);
+
+    const year = new Date(data.release_date).getFullYear();
+      const localSave = {
+        filmsName: data.original_title,
+        filmsImg: data.poster_path,
+        filmRelise: year,
+        filmGanre: data.genres,
+        filmRait: data.vote_average,
+      };
+      addToWatchLocaleStorage(localSave, data.original_title);
     })
 }  
 
