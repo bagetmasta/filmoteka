@@ -19,13 +19,17 @@ export function renderMarkup(films) {
     .map(film => {
       const { original_title, poster_path, vote_average, release_date } = film;
 
+      const year = new Date(release_date).getFullYear();
+
       return ` <li class="card-list__item">
                 <a href="" class="card-list__link">
                     <picture class="card-list_picture">
                         <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
                     </picture>
                     <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> Drama, Action |
-                        ${release_date}<span class="card-list__ratimg">${vote_average}</span></h2>
+                        ${year}<span class="card-list__ratimg">${vote_average.toFixed(
+        2
+      )}</span></h2>
                 </a>
             </li>`;
     })
