@@ -1,8 +1,10 @@
 import { onEscapeClose } from './onModalCloseBtn';
+import renderModal from './render-modal';
 import * as genres from '../genres.json';
 
 const refs = {
   cardList: document.querySelector('.card-list'),
+  filmModal: document.querySelector('.backdrop'),
 };
 
 export function fetchPopularFilms() {
@@ -25,12 +27,13 @@ export function renderMarkup(films) {
         vote_average,
         release_date,
         genre_ids,
+        id
       } = film;
 
       const year = new Date(release_date).getFullYear();
 
       return ` <li class="card-list__item">
-                <a href="" class="card-list__link">
+                <a href="" class="card-list__link" id=${id}>
                     <picture class="card-list_picture">
                         <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
                     </picture>
@@ -53,7 +56,7 @@ export function renderMarkup(films) {
 
 function onModalFilmOpen() {
   const cardLinks = document.querySelectorAll('.card-list__link');
-  const filmModal = document.querySelector('.backdrop');
+  // const filmModal = document.querySelector('.backdrop');
 
   for (let cardLink of cardLinks) {
     cardLink.addEventListener('click', onCardLinkClick);
@@ -61,13 +64,32 @@ function onModalFilmOpen() {
 
   function onCardLinkClick(e) {
     e.preventDefault();
-    filmModal.classList.remove('is-hidden');
+    
+    let id = e.currentTarget.id
+    fetchModal(id)
+    refs.filmModal.classList.remove('is-hidden');
 
-    if (!filmModal.classList.contains('is-hidden')) {
+    if (!refs.filmModal.classList.contains('is-hidden')) {
       onEscapeClose();
+      refs.filmModal.innerHTML = ''
     }
   }
 }
+
+function fetchModal(id) {
+
+  fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+    //  renderModal(data)
+    refs.filmModal.innerHTML = renderModal(data);
+    })
+}  
 
 function fetchFilmPhoto(posterPath) {
   if (posterPath === null) {
