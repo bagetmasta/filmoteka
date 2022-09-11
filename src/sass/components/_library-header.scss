@@ -4,6 +4,8 @@
 }
 
 .header-library {
+    padding-top: 40px;
+    padding-bottom: 60px;
     @extend .header-library--common;
     height: 230px;
 
@@ -40,8 +42,6 @@
 }
 
 .header-library__container{
-    padding-top: 40px;
-    padding-bottom: 40px;
     margin: 0 32px;
 }
 
@@ -50,6 +50,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
+
+    @include mobile{
+        margin-bottom: 60px;
+    }
 }
 
 .logo {
@@ -96,6 +101,10 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+
+    @include tablet{
+        gap: 32px;
+    }
     
 }
 .library__button {
@@ -111,15 +120,15 @@
     border: 1px solid rgba(255, 255, 255, 1);
     background-color: transparent;
     border-radius: 5px;
-    gap: 12px;
+    gap: 16px;
 
     @include mobile {
-        margin-top: 20px;
+        margin-top: auto;
         max-width: 129px;
     }
 
     @include tablet {
-        margin-top: 60px;
+        margin-top: auto;
         
     }
 
