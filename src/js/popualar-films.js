@@ -1,4 +1,5 @@
 import { onEscapeClose } from './onModalCloseBtn';
+
 const refs = {
   cardList: document.querySelector('.card-list'),
 };
@@ -20,11 +21,12 @@ export function renderMarkup(films) {
       const { original_title, poster_path, vote_average, release_date } = film;
 
       const year = new Date(release_date).getFullYear();
+      // const photo =
 
       return ` <li class="card-list__item">
                 <a href="" class="card-list__link">
                     <picture class="card-list_picture">
-                        <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
+                        <img src="../images/dummy.jpg" alt="Poster to movie">
                     </picture>
                     <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> Drama, Action |
                         ${year}<span class="card-list__ratimg">${vote_average.toFixed(
@@ -36,6 +38,11 @@ export function renderMarkup(films) {
     .join('');
 
   refs.cardList.innerHTML = newMarkup;
+
+  modalFilmOpen();
+}
+
+function modalFilmOpen() {
   const cardLinks = document.querySelectorAll('.card-list__link');
   const filmModal = document.querySelector('.backdrop');
 
@@ -51,4 +58,11 @@ export function renderMarkup(films) {
       onEscapeClose();
     }
   }
+}
+
+function fetchFilmPhoto(posterPath) {
+  if (posterPath === null) {
+    return '../images/dummy.jpg';
+  }
+  posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : 'gsf';
 }
