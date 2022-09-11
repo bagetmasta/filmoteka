@@ -1,9 +1,6 @@
 export default function renderModal(data) {
-    const genres = data.genres[0];
-    const marcupModal =
-    `<div class="backdrop">
-  <div class="modal">
-    <svg class="modal--icon">
+  const genres = data.genres[0];
+  const marcupModal = `<svg class="modal--icon">
       <use xlink:href="./images/sprite.svg#close"></use>
     </svg>
     <div class="modal--title">
@@ -54,10 +51,7 @@ export default function renderModal(data) {
           <button class="btn--modal">add to queue</button>
         </div>
       </div>
-    </div>
-  </div>
-</div>`
-    
-    return marcupModal;
-   
+    </div>`;
+
+  return marcupModal;
 }

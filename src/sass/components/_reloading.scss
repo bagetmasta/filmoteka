@@ -2,9 +2,9 @@
   padding-top: 50px;
   padding-bottom: 50px;
 
-  @include desktop {
-    display: none;
-  }
+  // @include desktop {
+  //   display: none;
+  // }
 
   &.is-hidden {
     display: none;
