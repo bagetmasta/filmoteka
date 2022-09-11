@@ -1,25 +1,36 @@
+body.show-modal .backdrop__footer {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  overflow-y: hidden;
+}
+
+body.show-modal .modal__footer {
+  transform: scale(1);
+}
+
 @mixin center($display: flex, $justContent: center, $alItems: center) {
   display: $display;
   justify-content: $justContent;
   align-items: $alItems;
 }
 
-.backdrop__modal {
+.backdrop__footer {
   position: fixed;
-
+  opacity: 1;
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
   overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   z-index: 2;
 
-  transition: opacity 250ms, visibility 250ms;
+  transition: opacity 250ms, visibility 250ms ease-in-out;
 }
 
-.is-hiddents {
+.backdrop__footer.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

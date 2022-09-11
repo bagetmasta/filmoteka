@@ -1,25 +1,29 @@
 const refs = {
   openModalBtn: document.querySelector('[data-modal-open-contacts]'),
-  onModalCloseBtn: document.querySelector('[data-modal-contacts-closed]'),
-  backdrops: document.querySelector('.backdrops__modal'),
+  btnCloseModal: document.querySelector('[data-modal-close-contacts]'),
+  backdrops: document.querySelector('#backdrop__footer'),
+  body: document.querySelector('body'),
 };
 
 // console.log(refs.openModalBtn);
-// console.log(refs.onModalCloseBtn);
+// console.log(refs.btnCloseModal);
 // console.log(refs.backdrops);
+// console.log(refs.body);
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.onModalCloseBtn.addEventListener('click', onCloseModal);
+refs.btnCloseModal.addEventListener('click', onCloseModal);
 refs.backdrops.addEventListener('click', onClickBackdrop);
 
 function onOpenModal() {
-  refs.backdrops.classList.remove('is-hiddents');
+  refs.backdrops.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
+  document.body.style.overflow = 'hidden';
 }
 
 function onCloseModal() {
-  refs.backdrops.classList.add('is-hiddents');
+  refs.backdrops.classList.add('is-hidden');
   window.removeEventListener('keydown', onPressESC);
+  document.body.style.overflow = 'visible';
 }
 
 function onClickBackdrop(e) {
@@ -29,7 +33,10 @@ function onClickBackdrop(e) {
 }
 
 function onPressESC(e) {
-  if (e.keyCode === 27) {
+  const ESC_KEY_CODE = 'Escape';
+  const isEscKey = e.code === ESC_KEY_CODE;
+
+  if (isEscKey) {
     onCloseModal();
   }
 }
