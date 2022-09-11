@@ -1,4 +1,5 @@
 // кнопка вверх
+
 $(document).ready(function () {
   var btn = $('#toTop');
   $(window).scroll(function () {
@@ -13,3 +14,18 @@ $(document).ready(function () {
     $('html, body').animate({ scrollTop: 0 }, '500');
   });
 });
+
+// $(document).ready(function () {
+//     var btn = $('#toTop');
+//     $(window).scroll(function () {
+//         if ($(window).scrollTop() > 500) {
+//             btn.addClass('show');
+//         } else {
+//             btn.removeClass('show');
+//         }
+//     });
+//     btn.on('click', function (e) {
+//         e.preventDefault();
+//         $('html, body').animate({ scrollTop: 0 }, '500');
+//     });
+// });

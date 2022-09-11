@@ -1,8 +1,31 @@
 <div class="my-library main-container container">
+  <div class="preloader is-hidden">
+    <div class="wrapper">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <span>Loading</span>
+    </div>
+  </div>
+  <img class="img-stub" src="./images/dummy.jpg" alt="" />
   <ul class="my-library__card-list">
-    <li class="card-list__item">
-      <img src="./images/dummy.jpg" alt="" />
-    </li>
+    <li class="card-list__item"></li>
   </ul>
+  <div class="reloading">
+    <div class="preloader-gooey is-hidden">
+      <div class="gooey">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <button class="btn-load-more is-hidden">Show more</button>
+  </div>
   <div id="tui-pagination-container" class="tui-pagination"></div>
 </div>
