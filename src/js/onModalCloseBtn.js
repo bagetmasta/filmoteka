@@ -16,9 +16,10 @@ function onClickClose(e) {
 }
 
 export function onEscapeClose() {
-  window.addEventListener('keydown', e => {
-    if (e.code === 'Escape') return filmModal.classList.add('is-hidden');
-  });
+  window.addEventListener('keydown', onCloseModalEscape, { once: true });
+}
 
-  removeEventListener('keydown', window);
+function onCloseModalEscape(e) {
+  console.log(e);
+  if (e.code === 'Escape') return filmModal.classList.add('is-hidden');
 }
