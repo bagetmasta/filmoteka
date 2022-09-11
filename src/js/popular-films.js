@@ -27,7 +27,7 @@ export function renderMarkup(films) {
         vote_average,
         release_date,
         genre_ids,
-        id
+        id,
       } = film;
 
       const year = new Date(release_date).getFullYear();
@@ -35,7 +35,7 @@ export function renderMarkup(films) {
       return ` <li class="card-list__item">
                 <a href="" class="card-list__link" id=${id}>
                     <picture class="card-list_picture">
-                        <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
+                        <img src="images/logo.png" alt="Poster to movie">
                     </picture>
                     <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> ${getGenres(
         genre_ids
@@ -64,21 +64,22 @@ function onModalFilmOpen() {
 
   function onCardLinkClick(e) {
     e.preventDefault();
-    
-    let id = e.currentTarget.id
-    fetchModal(id)
+
+    let id = e.currentTarget.id;
+    fetchModal(id);
     refs.filmModal.classList.remove('is-hidden');
 
     if (!refs.filmModal.classList.contains('is-hidden')) {
       onEscapeClose();
-      refs.filmModal.innerHTML = ''
+      refs.filmModal.innerHTML = '';
     }
   }
 }
 
 function fetchModal(id) {
-
-  fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`)
+  fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`
+  )
     .then(response => {
       if (!response.ok) {
         throw new Error(response.status);
@@ -86,10 +87,10 @@ function fetchModal(id) {
       return response.json();
     })
     .then(data => {
-    //  renderModal(data)
-    refs.filmModal.innerHTML = renderModal(data);
-    })
-}  
+      //  renderModal(data)
+      refs.filmModal.innerHTML = renderModal(data);
+    });
+}
 
 function fetchFilmPhoto(posterPath) {
   if (posterPath === null) {
