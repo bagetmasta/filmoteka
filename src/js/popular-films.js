@@ -1,9 +1,6 @@
 import { onEscapeClose } from './onModalCloseBtn';
 import * as genres from '../genres.json';
 
-const a = genres.filter(g => g.id === 28);
-// console.log(a);
-
 const refs = {
   cardList: document.querySelector('.card-list'),
 };
@@ -35,7 +32,7 @@ export function renderMarkup(films) {
       return ` <li class="card-list__item">
                 <a href="" class="card-list__link">
                     <picture class="card-list_picture">
-                        <img src="../images/dummy.jpg" alt="Poster to movie">
+                        <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
                     </picture>
                     <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> ${getGenres(
         genre_ids
