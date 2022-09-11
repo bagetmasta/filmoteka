@@ -1,4 +1,4 @@
-import './js/popualar-films';
+import './js/popular-films';
 import './js/movie-search';
 import './js/modal-footer';
 import './js/preloaders';

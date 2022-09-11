@@ -1,5 +1,5 @@
 const _ = require('lodash');
-import { renderMarkup, fetchPopularFilms } from './popualar-films';
+import { renderMarkup, fetchPopularFilms } from './popular-films';
 
 const refs = {
   input: document.querySelector('#textInput'),
