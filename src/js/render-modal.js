@@ -9,8 +9,8 @@ export default function renderModal(data) {
     <div class="modal--title">
       <div class="modal--img">
         <!-- <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="Film" /> -->
-        <!-- <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="Film" /> -->
-        <img src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="Film" />
+        <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="Film" />
+        <!--<img src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="Film" /> -->
       </div>
       <div class="modal--title__info">
         <h2 class="title--text">${data.title}</h2>
