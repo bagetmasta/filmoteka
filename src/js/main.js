@@ -93,7 +93,7 @@ function renderMarkup(films) {
       return ` <li class="card-list__item">
                   <a href="" class="card-list__link" id=${id}>
                       <picture class="card-list_picture">
-                          <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie">
+                          <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie"  class="card-list_picture">
                       </picture>
                       <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> ${getGenres(
         genre_ids
