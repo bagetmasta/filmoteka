@@ -11,7 +11,9 @@ let searchByKeyword = true;
 
 const refs = {
   input: document.querySelector('#textInput'),
+  form: document.querySelector('.search-bar'),
   cardList: document.querySelector('.card-list'),
+  inputError: document.querySelector('.input-error'),
   filmModal: document.querySelector('.backdrop'),
   // cardLinks: document.querySelectorAll('.card-list__link'),
   preloader: document.querySelector('.preloader'),
@@ -23,15 +25,17 @@ const refs = {
   animateModal: document.querySelector('.animate-modal'),
 };
 
-refs.input.addEventListener('input', _.debounce(fetchFilms, DEBOUNCE_DELAY));
+refs.form.addEventListener('submit', fetchFilms);
 refs.btnLoadMore.addEventListener('click', onBtnLoadMoreClick);
 
 fetchPopularFilms(page);
 
-function fetchFilms(film) {
+function fetchFilms(e) {
+  e.preventDefault();
+
   refs.cardList.innerHTML = '';
   page = 1;
-  const filmName = film.target.value.trim();
+  const filmName = e.currentTarget.elements.search.value;
 
   if (filmName === '') {
     return fetchPopularFilms(page);
@@ -41,7 +45,6 @@ function fetchFilms(film) {
 }
 
 function fetchNecessaryFilm(filmName, page) {
-  console.log(filmName);
   fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US&language=en-US&page=${page}&include_adult=false&query=${filmName}`
   )
@@ -53,6 +56,15 @@ function fetchNecessaryFilm(filmName, page) {
     })
     .then(({ results, total_pages }) => {
       totalPages = total_pages;
+
+      if (results.length < 1) {
+        refs.inputError.classList.remove('hide');
+        refs.btnLoadMore.classList.add('is-hidden');
+        return;
+      }
+
+      refs.btnLoadMore.classList.remove('is-hidden');
+      refs.inputError.classList.add('hide');
       renderMarkup(results);
     })
     .catch(error => console.log(error));
@@ -124,34 +136,31 @@ function renderMarkup(films) {
 
 function onModalFilmOpen() {
   const cardLinks = document.querySelectorAll('.card-list__link');
-    const cardItems = document.querySelectorAll('a')
+  const cardItems = document.querySelectorAll('a');
   // const filmModal = document.querySelector('.backdrop');
 
   for (let cardLink of cardLinks) {
- cardLink.addEventListener('click', function (e) {
-       e.preventDefault();
-      let id = e.currentTarget.id
-       setTimeout(function onCardLinkClick() {
-      fetchModal(id)
-         refs.filmModal.classList.remove('is-hidden');
-   
+    cardLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      let id = e.currentTarget.id;
+      setTimeout(function onCardLinkClick() {
+        fetchModal(id);
+        refs.filmModal.classList.remove('is-hidden');
 
-    if (!refs.filmModal.classList.contains('is-hidden')) {
-      onEscapeClose();
-      refs.animateModal.innerHTML = ''
-         }
-    for (let cardItem of cardItems) {
-      const toRemoveClass = cardItem.classList.contains('animated-card')
-      if (toRemoveClass) {
-        refs.modalFilm.classList.add('to-animate')
-        cardItem.classList.remove('animated-card')
-      }
-  }
-
+        if (!refs.filmModal.classList.contains('is-hidden')) {
+          onEscapeClose();
+          refs.animateModal.innerHTML = '';
+        }
+        for (let cardItem of cardItems) {
+          const toRemoveClass = cardItem.classList.contains('animated-card');
+          if (toRemoveClass) {
+            refs.modalFilm.classList.add('to-animate');
+            cardItem.classList.remove('animated-card');
+          }
+        }
       }, 600);
-    })
+    });
   }
-
 }
 
 function fetchModal(id) {

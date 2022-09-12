@@ -7,7 +7,7 @@
   @extend .header--common;
   height: 230px;
 
- @include x2 {
+  @include x2 {
     @include header($url: '/src/images/background/mobile/main-x1.jpg');
   }
 
@@ -25,29 +25,23 @@
     @include header($url: '/src/images/background/tablet/main-x1.jpg');
 
     @include x2 {
-      @include header($url: '/src/images/background/tablet/main-x2.jpg'
-      );
+      @include header($url: '/src/images/background/tablet/main-x2.jpg');
     }
 
     @include x3 {
-      @include header($url: '/src/images/background/tablet/main-x3.jpg'
-      );
+      @include header($url: '/src/images/background/tablet/main-x3.jpg');
     }
   }
 
-
   @include desktop {
-    @include header($url: '/src/images/background/desktop/main-x1.jpg'
-    );
+    @include header($url: '/src/images/background/desktop/main-x1.jpg');
 
     @include x2 {
-      @include header($url: '/src/images/background/desktop/main-x2.jpg'
-      );
+      @include header($url: '/src/images/background/desktop/main-x2.jpg');
     }
 
     @include x3 {
-      @include header($url: '/src/images/background/desktop/main-x3.jpg'
-      );
+      @include header($url: '/src/images/background/desktop/main-x3.jpg');
     }
   }
 }
@@ -63,7 +57,6 @@
 .logo-inner {
   display: flex;
   align-items: center;
-
 }
 
 .logo-text {
