@@ -1,10 +1,14 @@
+
+.set-timeout{
+  scale: 0;
+  position: absolute;
+}
+
 .shadow-background {
- background: #000000b3;
- position: absolute;
-min-width: 100%;
-height: 100%;
- overflow-y: hidden;
-  overflow-x: hidden;
+ background: #000;
+ width: 100%;
+ height: 3000px;
+ overflow: hidden;
   font: 5vw/100vh "Finger Paint";
   text-align: center;
   color: transparent;
@@ -15,8 +19,7 @@ height: 100%;
 .shadow-main {
   display: inline-block;
   text-shadow: 0 0 0 whitesmoke;
-  animation: smoky 5s 3s both;
-  
+   animation: smoky 5s 3s both;
 }
 
 .shadow-main{
