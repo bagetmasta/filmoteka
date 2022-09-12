@@ -107,10 +107,10 @@ function renderMarkup(films) {
                       <picture class="card-list_picture">
                           <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie"  class="card-list_picture">
                       </picture>
-                      <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span> ${getGenres(
+                      <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span><span class="card-list__genre">${getGenres(
         genre_ids
       ).join(', ')}
-                       | ${year}<span class="card-list__ratimg">${vote_average.toFixed(
+                       | ${year}</span><span class="card-list__ratimg">${vote_average.toFixed(
         2
       )}
                        </span></h2>
