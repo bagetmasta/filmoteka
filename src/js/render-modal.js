@@ -4,7 +4,7 @@ export default function renderModal(data) {
     `<div class="backdrop">
   <div class="modal">
     <svg class="modal--icon">
-      <use xlink:href="./images/sprite.svg#close"></use>
+      <use xlink:href="/sprite.f14d31f7.svg#close"></use>
     </svg>
     <div class="modal--title">
       <div class="modal--img">
