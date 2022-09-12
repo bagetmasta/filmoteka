@@ -7,41 +7,42 @@
   @extend .header--common;
   height: 230px;
 
-  @include x2 {
-    @include header($url: '/src/images/background/mobile/main-x1.jpg');
+  @include mobile {
+    @include header-home($url: '/src/images/background/mobile/main-x1.jpg');
   }
 
   @include x2 {
-    @include header($url: '/src/images/background/mobile/main-x2.jpg');
+    @include header-home($url: '/src/images/background/mobile/main-x2.jpg');
   }
 
   @include x3 {
-    @include header($url: '/src/images/background/mobile/main-x3.jpg');
+    @include header-home($url: '/src/images/background/mobile/main-x3.jpg');
   }
 
   @include tablet {
     height: 216px;
 
-    @include header($url: '/src/images/background/tablet/main-x1.jpg');
+    @include header-home($url: '/src/images/background/tablet/main-x1.jpg');
 
     @include x2 {
-      @include header($url: '/src/images/background/tablet/main-x2.jpg');
+      @include header-home($url: '/src/images/background/tablet/main-x2.jpg');
     }
 
     @include x3 {
-      @include header($url: '/src/images/background/tablet/main-x3.jpg');
+      @include header-home($url: '/src/images/background/tablet/main-x3.jpg');
     }
   }
 
   @include desktop {
-    @include header($url: '/src/images/background/desktop/main-x1.jpg');
+     height: 216px;
+    @include header-home($url: '/src/images/background/desktop/main-x1.jpg');
 
     @include x2 {
-      @include header($url: '/src/images/background/desktop/main-x2.jpg');
+      @include header-home($url: '/src/images/background/desktop/main-x2.jpg');
     }
 
     @include x3 {
-      @include header($url: '/src/images/background/desktop/main-x3.jpg');
+      @include header-home($url: '/src/images/background/desktop/main-x3.jpg');
     }
   }
 }
@@ -65,9 +66,9 @@
   display: none;
   color: $color--accent-text;
 
-  @include tablet {
-    display: inline-block;
-  }
+  // @include tablet {
+  //   display: inline-block;
+  // }
 }
 
 .icon-film {

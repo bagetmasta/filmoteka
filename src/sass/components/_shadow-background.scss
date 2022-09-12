@@ -1,26 +1,25 @@
-.shadow-background{
-    
-position: absolute;
-width: 100%;
+.shadow-background {
+ background: #000000b3;
+ position: absolute;
+min-width: 100%;
 height: 100%;
-  overflow: hidden;
+ overflow-y: hidden;
+  overflow-x: hidden;
   font: 5vw/100vh "Finger Paint";
   text-align: center;
   color: transparent;
   backface-visibility: hidden;
-  background: black;
-font-family: 'finger-paint-regular', sans-serif;
-  animation: smoky 3s 2s both;
+    animation: smoky 5s 3s both;
+}
+
+.shadow-main {
+  display: inline-block;
+  text-shadow: 0 0 0 whitesmoke;
+  animation: smoky 5s 3s both;
+  
 }
 
 .shadow-main{
-
-    display: inline-block;
-  text-shadow: 0 0 0 whitesmoke;
-    animation-name: smoky-mirror;
-}
-
-.shadow-main:nth-child(even){
   animation-name: smoky-mirror;
 }
 
@@ -31,17 +30,18 @@ font-family: 'finger-paint-regular', sans-serif;
   to {
     transform:
       translate3d(15rem,-8rem,0)
-      rotate(-40deg)
-      skewX(70deg)
+      rotate(0deg)
+      skewX(0deg)
       scale(1.5);
     text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
+    opacity: 1;
+    visibility: hidden;
   }
 }
 
 @keyframes smoky-mirror {
   60% {
-    text-shadow: 0 0 20px whitesmoke; }
+    text-shadow: 0 0 40px whitesmoke; }
   to {
     transform:
       translate3d(18rem,-8rem,0)
@@ -52,3 +52,9 @@ font-family: 'finger-paint-regular', sans-serif;
     opacity: 0;
   }
 }
+
+@for $item from 1 through 21 {
+  span:nth-of-type(#{$item}){ 
+    animation-delay: #{(3 + calc($item/10))}s; 
+  }
+} 
