@@ -133,10 +133,10 @@
     }
 
 }
-   
 
 .library__button-current {
     background-color: $color--accent-orange;
+    border:none;
 }
 
 .button__text {
@@ -146,7 +146,3 @@
     color: $color--accent-text;
 }
 
-.library__button:focus,
-.library__button:hover{
-border: 1px solid rgb(91, 13, 216)
-}
