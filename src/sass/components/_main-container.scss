@@ -23,7 +23,7 @@
   }
 
   @include desktop {
-    gap: 16px;
+    gap: 32px;
   }
 }
 
@@ -50,7 +50,7 @@
 
   @include desktop {
     flex: none;
-    width: 394px;
+    width: 378px;
   }
 }
 
@@ -70,6 +70,7 @@
 .card-list__title {
   margin-top: 10px;
   margin-left: 10px;
+  padding: 10px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
