@@ -30,6 +30,8 @@
 .card-list__item {
   display: block;
   width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
 
   @include tablet {
     flex: calc((100% / 2) - 1rem\2);
