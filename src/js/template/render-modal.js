@@ -1,8 +1,9 @@
 export default function renderModal(data) {
   const genres = data.genres[0];
-  const marcupModal = `<svg class="modal--icon">
-      <use xlink:href="./images/sprite.svg#close"></use>
-    </svg>
+  const marcupModal = `<svg class="modal--icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 8L22 22" stroke="black" stroke-width="2"/>
+<path d="M8 22L22 8" stroke="black" stroke-width="2"/>
+</svg>
     <div class="modal--title">
       <div class="modal--img">
         <!-- <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="Film" /> -->
