@@ -47,8 +47,8 @@ export default function renderModal(data) {
           </p>
         </div>
         <div class="conteiner--btn">
-          <button class="btn--modal active">add to Watched</button>
-          <button class="btn--modal">add to queue</button>
+          <button class="btn--modal active js-add-to-watched">add to Watched</button>
+          <button class="btn--modal js-add-to-queue">add to queue</button>
         </div>
       </div>
     </div>`;

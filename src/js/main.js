@@ -2,6 +2,10 @@ const _ = require('lodash');
 import { onEscapeClose } from './components/onModalCloseBtn';
 import renderModal from './template/render-modal';
 import * as genres from '../genres.json';
+import {
+  addToQueueLocalStorage,
+  addToWachedLocalStorage,
+} from './add-to-local-storage';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -144,7 +148,10 @@ function onModalFilmOpen() {
       e.preventDefault();
       let id = e.currentTarget.id;
       setTimeout(function onCardLinkClick() {
-        fetchModal(id);
+        fetchModal(id).then(data => {
+          addToQueueLocalStorage(data);
+          addToWachedLocalStorage(data);
+        });
         refs.filmModal.classList.remove('is-hidden');
 
         if (!refs.filmModal.classList.contains('is-hidden')) {
@@ -164,7 +171,7 @@ function onModalFilmOpen() {
 }
 
 function fetchModal(id) {
-  fetch(
+  return fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`
   )
     .then(response => {
@@ -176,6 +183,7 @@ function fetchModal(id) {
     .then(data => {
       //   renderModal(data);
       refs.animateModal.innerHTML = renderModal(data);
+      return data;
     });
 }
 
