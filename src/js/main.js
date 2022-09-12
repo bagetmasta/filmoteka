@@ -20,6 +20,7 @@ const refs = {
   btnLoadMore: document.querySelector('.btn-load-more'),
   imgStub: document.querySelector('.img-stub'),
   modalFilm: document.querySelector('.modal'),
+  animateModal: document.querySelector('.animate-modal'),
 };
 
 refs.input.addEventListener('input', _.debounce(fetchFilms, DEBOUNCE_DELAY));
@@ -123,24 +124,34 @@ function renderMarkup(films) {
 
 function onModalFilmOpen() {
   const cardLinks = document.querySelectorAll('.card-list__link');
+    const cardItems = document.querySelectorAll('a')
   // const filmModal = document.querySelector('.backdrop');
 
   for (let cardLink of cardLinks) {
-    cardLink.addEventListener('click', onCardLinkClick);
-  }
-
-  function onCardLinkClick(e) {
-    e.preventDefault();
-
-    let id = e.currentTarget.id;
-    fetchModal(id);
-    refs.filmModal.classList.remove('is-hidden');
+ cardLink.addEventListener('click', function (e) {
+       e.preventDefault();
+      let id = e.currentTarget.id
+       setTimeout(function onCardLinkClick() {
+      fetchModal(id)
+         refs.filmModal.classList.remove('is-hidden');
+   
 
     if (!refs.filmModal.classList.contains('is-hidden')) {
       onEscapeClose();
-      refs.modalFilm.innerHTML = '';
-    }
+      refs.animateModal.innerHTML = ''
+         }
+    for (let cardItem of cardItems) {
+      const toRemoveClass = cardItem.classList.contains('animated-card')
+      if (toRemoveClass) {
+        refs.modalFilm.classList.add('to-animate')
+        cardItem.classList.remove('animated-card')
+      }
   }
+
+      }, 600);
+    })
+  }
+
 }
 
 function fetchModal(id) {
@@ -155,7 +166,7 @@ function fetchModal(id) {
     })
     .then(data => {
       //   renderModal(data);
-      refs.modalFilm.innerHTML = renderModal(data);
+      refs.animateModal.innerHTML = renderModal(data);
     });
 }
 
