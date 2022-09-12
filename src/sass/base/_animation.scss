@@ -1,19 +1,14 @@
-@keyframes glowing {
-  0% { box-shadow: 0 0 5px #FF6B09; }
-  50% { box-shadow: 0 0 25px #fd7921; }
-  100% { box-shadow: 0 0 5px #fa8a40; }
-}
 
-.button-up,
+
+
+.button,
 #toTop {
     animation: glowing 1300ms infinite;
 }
 
-
 .program__list::after {
     animation: glowing 1300ms infinite;
 }
-
 
 .accent-text {
     animation: glowing-text 1300ms infinite;

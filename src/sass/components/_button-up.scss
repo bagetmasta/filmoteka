@@ -1,8 +1,8 @@
 // button up
 
 #toTop {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     font-weight: 700;
     background: rgba(255, 107, 9, 0.6);
     color: #fff;
@@ -18,12 +18,33 @@
     line-height: 2;
     text-align: center;
     z-index: 10000;
+   animation: heartbeat 1200ms infinite;
+          }
+//     @keyframes glowing {
+//   0% { box-shadow: 0 0 5px #FF6B09; }
+//   50% { box-shadow: 0 0 25px #fd7921; }
+//   100% { box-shadow: 0 0 5px #fa8a40; }
+  // 
+// }
+@keyframes heartbeat {
+    0% {
+      transform: scale(0.5);
+    }
+    20% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1);
+    }
+    100% {box-shadow: #FFF 0 -1px 30px, rgb(255, 111, 0) 0 -2px 30px, #ff8000 0 -10px 30px,  5px 5px 0px 30px rgba(0,0,0,0);}
   }
 
+
+
   .scroll-top {
-    opacity: 1;
+    opacity: 0;
   
     &.show {
-      opacity: 0;
-    }
+      opacity: 1;
   }
+}
