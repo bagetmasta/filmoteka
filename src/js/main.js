@@ -197,6 +197,10 @@ function getGenres(ids) {
     });
   }
 
+  if (newArray.length > 2) {
+    newArray.splice(2, 3, 'Other');
+  }
+
   return newArray;
 }
 
