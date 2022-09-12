@@ -56,24 +56,31 @@ export function renderMarkup(films) {
 
 function onModalFilmOpen() {
   const cardLinks = document.querySelectorAll('.card-list__link');
+  const cardItems = document.querySelectorAll('a')
   // const filmModal = document.querySelector('.backdrop');
 
-  for (let cardLink of cardLinks) {
-    cardLink.addEventListener('click', onCardLinkClick);
-  }
-
-  function onCardLinkClick(e) {
-    e.preventDefault();
-
-    let id = e.currentTarget.id;
-    fetchModal(id);
-    refs.filmModal.classList.remove('is-hidden');
-
+   for (let cardLink of cardLinks) {
+     cardLink.addEventListener('click', function (e) {
+       e.preventDefault();
+      let id = e.currentTarget.id
+       setTimeout(function onCardLinkClick() {
+      fetchModal(id)
+         refs.filmModal.classList.remove('is-hidden');
+   
     if (!refs.filmModal.classList.contains('is-hidden')) {
       onEscapeClose();
-      refs.filmModal.innerHTML = '';
-    }
+      refs.filmModal.innerHTML = ''
+         }
+    for (let cardItem of cardItems) {
+      const toRemoveClass = cardItem.classList.contains('animated-card')
+      if (toRemoveClass) {
+        cardItem.classList.remove('animated-card')
+      }
   }
+      }, 6000);
+    })
+  }
+
 }
 
 function fetchModal(id) {

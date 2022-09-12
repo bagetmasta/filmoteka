@@ -1,6 +1,6 @@
 // const closeModalBtn = document.querySelector('.modal--icon');
 const filmModal = document.querySelector('.backdrop');
-
+const animate = document.querySelector('.modal');
 // closeModalBtn.addEventListener('click', onModalCloseBtn);
 filmModal.addEventListener('click', onClickClose);
 
@@ -11,6 +11,7 @@ filmModal.addEventListener('click', onClickClose);
 function onClickClose(e) {
   if (e.target.className === 'backdrop') {
     filmModal.classList.add('is-hidden');
+    animate.classList.remove('to-animate');
     removeEventListener('click', filmModal);
   }
 }
@@ -21,5 +22,7 @@ export function onEscapeClose() {
 
 function onCloseModalEscape(e) {
   console.log(e);
-  if (e.code === 'Escape') return filmModal.classList.add('is-hidden');
-}
+  if (e.code === 'Escape') {
+    filmModal.classList.add('is-hidden');
+    animate.classList.remove('to-animate');
+  };
