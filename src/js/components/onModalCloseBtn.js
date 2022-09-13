@@ -1,6 +1,8 @@
 const filmModal = document.querySelector('.backdrop');
 const animate = document.querySelector('.modal');
 
+
+
 filmModal.addEventListener('click', onClickClose);
 
 function onClickClose(e) {
@@ -8,6 +10,9 @@ function onClickClose(e) {
     filmModal.classList.add('is-hidden');
     animate.classList.remove('to-animate');
     removeEventListener('click', filmModal);
+  }
+  if (e.target.className === 'cl-btn-close'|| e.target.className === 'leftright' || e.target.className === 'rightleft') {
+    filmModal.classList.add('is-hidden');
   }
 }
 

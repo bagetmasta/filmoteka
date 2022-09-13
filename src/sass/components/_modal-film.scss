@@ -93,9 +93,27 @@
 
 .cl-btn-2 {
   position: absolute;
-  top: -30px;
-  right: -60px;
+  // padding: 15px;
   justify-content: center;
+  @include mobile {
+      top: -50px;
+      right: -38px;
+    }
+
+  @include tablet {
+    top: -40px;
+    right: -74px;
+  }
+
+  @include desktop {
+    top: -30px;
+    right: -60px;
+  }
+
+  @media screen and (min-width: 1281px) {
+    top: -30px;
+    right: -15px;
+  }
 }
 
 .cl-btn-2 div {
@@ -106,25 +124,54 @@
 }
 
 .cl-btn-2 .leftright {
-  height: 3px;
-  width: 30px;
+  // height: 3px;
+  // width: 30px;
   position: absolute;
   margin-top: 24px;
   background-color: #000;
   border-radius: 2px;
   transform: rotate(45deg);
   transition: all .3s ease-in;
+
+  @include mobile {
+      height: 3px;
+      width: 20px;
+    }
+
+    @include tablet {
+      height: 3px;
+      width: 25px;
+    }
+
+    @include desktop {
+      height: 3px;
+      width: 30px;
+    }
 }
 
 .cl-btn-2 .rightleft {
-  height: 3px;
-  width: 30px;
+  // height: 3px;
+  // width: 30px;
   position: absolute;
   margin-top: 24px;
   background-color: #000;
   border-radius: 2px;
   transform: rotate(-45deg);
   transition: all .3s ease-in;
+    @include mobile {
+        height: 3px;
+        width: 20px;
+    }
+
+    @include tablet {
+      height: 3px;
+      width: 25px;
+    }
+
+    @include desktop {
+      height: 3px;
+      width: 30px;
+    }
 }
 
 .cl-btn-2 .close-btn {
