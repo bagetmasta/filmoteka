@@ -5,6 +5,5 @@ cardList.addEventListener('click', toAnimationCard)
 
 function toAnimationCard(e) {
     const currentCard = e.target.closest('.card-list__link');
-    console.log(currentCard)
     currentCard.classList.add('animated-card')
 }
