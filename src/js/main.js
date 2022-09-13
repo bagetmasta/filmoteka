@@ -167,6 +167,10 @@ function onModalFilmOpen() {
             filmGanre: data.genres,
             filmRait: data.vote_average,
             id: data.id,
+            filmsCount: data.vote_count,
+            filmsPopularity: data.popularity,
+            filmsOverview: data.overview,
+            filmsTitle: data.title,
           };
           addToQueueLocalStorage(localSave);
           addToWachedLocalStorage(localSave);
