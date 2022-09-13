@@ -1,7 +1,7 @@
 export default function renderModal(data) {
   const genres = data.genres[0];
   const marcupModal = `<div class="cl-btn-2">
-      <div>
+      <div class="cl-btn-close">
           <div class="leftright"></div>
           <div class="rightleft"></div>
       </div>
