@@ -1,11 +1,5 @@
 .reloading {
-  min-height: 164px;
   padding-top: 60px;
-  padding-bottom: 60px;
-
-  // @include desktop {
-  //   display: none;
-  // }
 
   &.is-hidden {
     display: none;

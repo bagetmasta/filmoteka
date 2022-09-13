@@ -6,11 +6,14 @@ import {
   addToQueueLocalStorage,
   addToWachedLocalStorage,
 } from './add-to-local-storage';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import pagination from './components/tui-pagination';
 
 const DEBOUNCE_DELAY = 300;
 
 let page = 1;
-let totalPages = 0;
+let filmName = '';
 let searchByKeyword = true;
 
 const refs = {
@@ -19,27 +22,25 @@ const refs = {
   cardList: document.querySelector('.card-list'),
   inputError: document.querySelector('.input-error'),
   filmModal: document.querySelector('.backdrop'),
-  // cardLinks: document.querySelectorAll('.card-list__link'),
   preloader: document.querySelector('.preloader'),
   reloading: document.querySelector('.reloading'),
   preloaderGooey: document.querySelector('.preloader-gooey'),
-  btnLoadMore: document.querySelector('.btn-load-more'),
   imgStub: document.querySelector('.img-stub'),
   modalFilm: document.querySelector('.modal'),
   animateModal: document.querySelector('.animate-modal'),
+  paginationList: document.querySelector('#tui-pagination-container'),
 };
 
 refs.form.addEventListener('submit', fetchFilms);
-refs.btnLoadMore.addEventListener('click', onBtnLoadMoreClick);
+refs.paginationList.addEventListener('click', onClickBtnPagination);
 
 fetchPopularFilms(page);
 
 function fetchFilms(e) {
   e.preventDefault();
-
-  refs.cardList.innerHTML = '';
+  pagination.reset();
   page = 1;
-  const filmName = e.currentTarget.elements.search.value;
+  filmName = e.currentTarget.elements.search.value;
 
   if (filmName === '') {
     return fetchPopularFilms(page);
@@ -48,30 +49,14 @@ function fetchFilms(e) {
   return fetchNecessaryFilm(filmName, page);
 }
 
-function fetchNecessaryFilm(filmName, page) {
-  fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US&language=en-US&page=${page}&include_adult=false&query=${filmName}`
-  )
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .then(({ results, total_pages }) => {
-      totalPages = total_pages;
-
-      if (results.length < 1) {
-        refs.inputError.classList.remove('hide');
-        refs.btnLoadMore.classList.add('is-hidden');
-        return;
-      }
-
-      refs.btnLoadMore.classList.remove('is-hidden');
-      refs.inputError.classList.add('hide');
-      renderMarkup(results);
-    })
-    .catch(error => console.log(error));
+function onClickBtnPagination(e) {
+  page = pagination.getCurrentPage();
+  setTimeout(() => {
+    if (filmName === '') {
+      return fetchPopularFilms(page);
+    }
+    return fetchNecessaryFilm(filmName, page);
+  }, 1000);
 }
 
 function fetchPopularFilms(page) {
@@ -86,10 +71,36 @@ function fetchPopularFilms(page) {
       return response.json();
     })
     .then(({ results, total_pages }) => {
-      totalPages = total_pages;
+      pagination.reset(total_pages * 10);
       renderMarkup(results);
+      pagination.movePageTo(page);
     })
     .catch(console.log);
+}
+
+function fetchNecessaryFilm(filmName, page) {
+  searchByKeyword = true;
+  fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US&language=en-US&page=${page}&include_adult=false&query=${filmName}`
+  )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(({ results, total_pages }) => {
+      pagination.reset(total_pages * 10);
+      if (results.length < 1) {
+        refs.inputError.classList.remove('hide');
+        return;
+      }
+
+      refs.inputError.classList.add('hide');
+      renderMarkup(results);
+      pagination.movePageTo(page);
+    })
+    .catch(error => console.log(error));
 }
 
 function renderMarkup(films) {
@@ -122,18 +133,7 @@ function renderMarkup(films) {
               </li>`;
     })
     .join('');
-
-  refs.cardList.insertAdjacentHTML('beforeend', newMarkup);
-
-  refs.preloaderGooey.classList.add('is-hidden');
-
-  if (page < totalPages) {
-    refs.btnLoadMore.classList.remove('is-hidden');
-    refs.reloading.classList.remove('is-hidden');
-  } else {
-    refs.btnLoadMore.classList.add('is-hidden');
-    refs.reloading.classList.add('is-hidden');
-  }
+  refs.cardList.innerHTML = newMarkup;
 
   onModalFilmOpen();
 }
@@ -210,17 +210,4 @@ function getGenres(ids) {
   }
 
   return newArray;
-}
-
-function onBtnLoadMoreClick(e) {
-  page += 1;
-  refs.btnLoadMore.classList.add('is-hidden');
-  refs.preloaderGooey.classList.remove('is-hidden');
-
-  setTimeout(() => {
-    if (!searchByKeyword) {
-      return fetchPopularFilms(page);
-    }
-    return fetchNecessaryFilm(filmName, page);
-  }, 2000);
 }
