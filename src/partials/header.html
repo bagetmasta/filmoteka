@@ -1,36 +1,48 @@
 <!-- Header -->
-<header class="header-home" id="home">
-  <div class="header-container header-section">
-    <div class="logo-inner">
-      <a href="./index.html">
-        <svg class="icon-film" class="icon-film">
-          <use href="./images/sprites.svg#film"></use>
-        </svg>
+<header class="header-home header" id="home">
+  <div class="container">
+    <div class="block-top">
+      <div class="logo-inner">
         <a href="./index.html">
-          <span class="logo__name">Filmoteka</span>
-        </a> </a>
+          <svg class="icon-film" class="icon-film">
+            <use href="./images/sprites.svg#film"></use>
+          </svg>
+          <a href="./index.html">
+            <span class="logo__name">Filmoteka</span>
+          </a>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li class="header-nav__item current">
+            <a href="./index.html"> Home</a>
+          </li>
+          <li class="header-nav__item">
+            <a href="./library.html">my library</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <nav class="header-nav">
-      <ul class="header-nav__list">
-        <li class="header-nav__item current">
-          <a href="./index.html"> Home</a>
-        </li>
-        <li class="header-nav__item">
-          <a href="./library.html">my library</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="header-container">
-    <form action="#" class="search-bar">
-      <input type="search" name="search" id="textInput" placeholder="Movie search" required />
-      <button class="search-btn" type="submit" aria-label="Search">
-        <svg class="search-icon">
-          <use href="./images/sprites.svg#search"></use>
-        </svg>
-      </button>
-    </form>
-    <span class="input-error hide">Search result not successful. Enter the correct movie name and try
-      again!</span>
+    <div class="header-form">
+      <form action="#" class="search-bar">
+        <input
+        class="header-form__input"
+          type="search"
+          name="search"
+          id="textInput"
+          placeholder="Movie search"
+          required
+        />
+        <button class="search-btn" type="submit" aria-label="Search">
+          <svg class="search-icon">
+            <use href="./images/sprites.svg#search"></use>
+          </svg>
+        </button>
+      </form>
+      <span class="input-error hide"
+        >Search result not successful. Enter the correct movie name and try
+        again!</span
+      >
+    </div>
   </div>
 </header>

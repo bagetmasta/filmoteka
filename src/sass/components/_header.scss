@@ -1,3 +1,12 @@
+.block-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  padding: 49px 0 80px 0;
+}
 .header--common {
   flex: 0 0 auto;
   min-height: 230px;
@@ -5,7 +14,7 @@
 
 .header-home {
   @extend .header--common;
-  height: 230px;
+  // height: 230px;
 
   @include mobile {
     @include header-home($url: '/src/images/background/mobile/main-x1.jpg');
@@ -20,7 +29,7 @@
   }
 
   @include tablet {
-    height: 216px;
+    // height: 216px;
 
     @include header-home($url: '/src/images/background/tablet/main-x1.jpg');
 
@@ -34,7 +43,7 @@
   }
 
   @include desktop {
-     height: 216px;
+    // height: 216px;
     @include header-home($url: '/src/images/background/desktop/main-x1.jpg');
 
     @include x2 {
@@ -47,13 +56,14 @@
   }
 }
 
-.header-section {
-  padding-top: 40px;
-  margin: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// .header-section {
+//   // padding-top: 40px;
+//   margin: 0 32px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   flex-direction: column;
+// }
 
 .logo-inner {
   display: flex;
@@ -166,4 +176,8 @@
 a {
   text-decoration: none;
   color: currentColor;
+}
+
+.header-form__input:focus::placeholder {
+  color: transparent;
 }
