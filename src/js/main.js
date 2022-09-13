@@ -49,10 +49,6 @@ function fetchFilms(e) {
   page = 1;
   filmName = e.currentTarget.elements.search.value;
 
-  if (filmName === '') {
-    return fetchPopularFilms(page);
-  }
-
   return fetchNecessaryFilm(filmName, page);
 }
 
@@ -159,14 +155,14 @@ function onModalFilmOpen() {
       setTimeout(function onCardLinkClick() {
         fetchModal(id).then(data => {
           const year = new Date(data.release_date).getFullYear();
-            const localSave = {
-              filmsName: data.original_title,
-              filmsImg: data.poster_path,
-              filmRelise: year,
-              filmGanre: data.genres,
-              filmRait: data.vote_average,
-              id: data.id,
-            };
+          const localSave = {
+            filmsName: data.original_title,
+            filmsImg: data.poster_path,
+            filmRelise: year,
+            filmGanre: data.genres,
+            filmRait: data.vote_average,
+            id: data.id,
+          };
           addToQueueLocalStorage(localSave);
           addToWachedLocalStorage(localSave);
         });
