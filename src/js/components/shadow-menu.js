@@ -7,4 +7,4 @@ function shadowOf() {
     document.body.style.overflow = 'visible';
 };
 
-setTimeout(shadowOf, 3000);
+setTimeout(shadowOf, 4000);

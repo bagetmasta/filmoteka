@@ -1,5 +1,5 @@
 // кнопка вверх
-// import $ from 'jquery';
+import $ from 'jquery';
 
 // кнопка вверх
 $(document).ready(function () {

@@ -14,13 +14,12 @@
   text-align: center;
   color: transparent;
   backface-visibility: hidden;
-    animation: smoky 5s 3s both;
 }
 
 .shadow-main {
   display: inline-block;
   text-shadow: 0 0 0 whitesmoke;
-   animation: smoky 5s 3s both;
+   animation: smoky 1.5s -1.5s both;
 }
 
 .shadow-main{
@@ -28,7 +27,7 @@
 }
 
 @keyframes smoky {
-  60% {
+  20% {
     text-shadow: 0 0 40px whitesmoke;
   }
   to {
@@ -36,7 +35,7 @@
       translate3d(15rem,-8rem,0)
       rotate(0deg)
       skewX(0deg)
-      scale(1.5);
+      scale(1);
     text-shadow: 0 0 20px whitesmoke;
     opacity: 1;
     visibility: hidden;
@@ -51,7 +50,7 @@
       translate3d(18rem,-8rem,0)
       rotate(-40deg) 
       skewX(-70deg)
-      scale(2);
+      scale(1);
      text-shadow: 0 0 20px whitesmoke;
     opacity: 0;
   }
