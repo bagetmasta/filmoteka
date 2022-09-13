@@ -1,3 +1,24 @@
+.img-stub__list {
+  display: flex;
+  justify-content: center;
+}
+
+.img-stub__item {
+  display: block;
+  width: 100%;
+@include tablet {
+    width: 336px;
+  }
+
+  @include desktop {
+    flex: calc((100% / 2) - 1rem\2);
+    width: 378px;
+  }
+}
+.img-stub__title {
+  text-align: center;
+}
 .img-stub.is-hidden {
   display: none;
 }
+

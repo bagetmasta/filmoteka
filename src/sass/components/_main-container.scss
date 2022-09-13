@@ -54,7 +54,8 @@
   }
 }
 
-.card-list_picture {
+.card-list_picture,
+.img-stub__picture {
   width: 100%;
 
   @include tablet {
@@ -67,7 +68,8 @@
   }
 }
 
-.card-list__title {
+.card-list__title,
+.img-stub__title {
   margin-top: 10px;
   margin-left: 10px;
   padding: 10px;
