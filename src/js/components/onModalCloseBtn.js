@@ -1,4 +1,3 @@
-
 const filmModal = document.querySelector('.backdrop');
 const animate = document.querySelector('.modal');
 
@@ -21,4 +20,5 @@ function onCloseModalEscape(e) {
   if (e.code === 'Escape') {
     filmModal.classList.add('is-hidden');
     animate.classList.remove('to-animate');
-  };
+  }
+}
