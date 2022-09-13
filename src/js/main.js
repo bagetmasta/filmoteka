@@ -47,7 +47,7 @@ function fetchFilms(e) {
   e.preventDefault();
   pagination.reset();
   page = 1;
-  const filmName = e.currentTarget.elements.search.value;
+  filmName = e.currentTarget.elements.search.value;
 
   if (filmName === '') {
     return fetchPopularFilms(page);
