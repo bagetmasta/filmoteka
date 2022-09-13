@@ -54,12 +54,17 @@ function fetchFilms(e) {
 
 function onClickBtnPagination(e) {
   page = pagination.getCurrentPage();
-  setTimeout(() => {
-    if (filmName === '') {
-      return fetchPopularFilms(page);
-    }
-    return fetchNecessaryFilm(filmName, page);
-  }, 1000);
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
+
+  if (filmName === '') {
+    return fetchPopularFilms(page);
+  }
+  return fetchNecessaryFilm(filmName, page);
 }
 
 function fetchPopularFilms(page) {
