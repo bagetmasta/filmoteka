@@ -2,7 +2,7 @@ import { refs } from "./constants-library";
 
 export default function renderGenreMovieByName(film) {
     const genreNames = [];
-    film.genres.map(genre => {
+    film.filmGanre.map(genre => {
     return genreNames.push(genre.name);
     });
     if (genreNames.length > 2) {
