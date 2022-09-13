@@ -149,8 +149,17 @@ function onModalFilmOpen() {
       let id = e.currentTarget.id;
       setTimeout(function onCardLinkClick() {
         fetchModal(id).then(data => {
-          addToQueueLocalStorage(data);
-          addToWachedLocalStorage(data);
+          const year = new Date(data.release_date).getFullYear();
+            const localSave = {
+              filmsName: data.original_title,
+              filmsImg: data.poster_path,
+              filmRelise: year,
+              filmGanre: data.genres,
+              filmRait: data.vote_average,
+              id: data.id,
+            };
+          addToQueueLocalStorage(localSave);
+          addToWachedLocalStorage(localSave);
         });
         refs.filmModal.classList.remove('is-hidden');
 
