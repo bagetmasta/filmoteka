@@ -162,13 +162,13 @@
 }
 
 .animated-card {
-  animation: heartbeat 0.6s infinite;
+  animation: cardbeat 0.6s infinite;
   opacity: 0.8;
   transition-property: transform, opacity;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-  @keyframes heartbeat {
+  @keyframes cardbeat {
     0% {
       transform: scale(0.8);
       opacity: 0.7;
