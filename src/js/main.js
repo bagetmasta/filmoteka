@@ -10,8 +10,6 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import pagination from './components/tui-pagination';
 
-const DEBOUNCE_DELAY = 300;
-
 let page = 1;
 let filmName = '';
 let searchByKeyword = true;
@@ -33,14 +31,23 @@ const refs = {
 
 refs.form.addEventListener('submit', fetchFilms);
 refs.paginationList.addEventListener('click', onClickBtnPagination);
+refs.input.addEventListener('input', returnPopularFilms);
 
 fetchPopularFilms(page);
+
+function returnPopularFilms(e) {
+  const inputValue = e.target.value;
+
+  if (inputValue === '') {
+    fetchPopularFilms(1);
+  }
+}
 
 function fetchFilms(e) {
   e.preventDefault();
   pagination.reset();
   page = 1;
-  filmName = e.currentTarget.elements.search.value;
+  const filmName = e.currentTarget.elements.search.value;
 
   if (filmName === '') {
     return fetchPopularFilms(page);
@@ -120,7 +127,9 @@ function renderMarkup(films) {
       return ` <li class="card-list__item">
                   <a href="" class="card-list__link" id=${id}>
                       <picture class="card-list_picture">
-                          <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster to movie"  class="card-list_picture">
+                          <img src="${fetchFilmPhoto(
+                            poster_path
+                          )}" alt="Poster to movie"  class="card-list_picture">
                       </picture>
                       <h2 class="card-list__title"><span class="card-list__movie-name">${original_title}</span><span class="card-list__genre">${getGenres(
         genre_ids
@@ -188,10 +197,12 @@ function fetchModal(id) {
 }
 
 function fetchFilmPhoto(posterPath) {
-  if (posterPath === null) {
-    return '../images/dummy.jpg';
-  }
-  posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : 'gsf';
+  const noPosterAvaliable =
+    'https://yt3.ggpht.com/AAKF_677TIvjFz_9xFF0R6PgiVd0kRpEtY6APSxSDRP65nXg8hkn9NFsz2bRd9_Z37DJ9D_b=s900-c-k-c0x00ffffff-no-rj';
+
+  return posterPath
+    ? `https://image.tmdb.org/t/p/w500${posterPath}`
+    : noPosterAvaliable;
 }
 
 function getGenres(ids) {
