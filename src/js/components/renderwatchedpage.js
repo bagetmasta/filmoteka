@@ -22,7 +22,7 @@ function onWatchedBtn(e) {
                             <picture class="card-list_picture">
                             <img src="https://image.tmdb.org/t/p/original${film.filmsImg}" alt="https://yt3.ggpht.com/AAKF_677TIvjFz_9xFF0R6PgiVd0kRpEtY6APSxSDRP65nXg8hkn9NFsz2bRd9_Z37DJ9D_b=s900-c-k-c0x00ffffff-no-rj">
                             </picture>
-                            <h2 class="card-list__title"><span class="card-list__movie-name">${film.filmName}</span>
+                            <h2 class="card-list__title"><span class="card-list__movie-name">${film.filmsName}</span>
                             ${refs.movieGenre} | ${film.filmRelise}<span class="card-list__ratimg">${film.filmRait}</span>
                             </h2>
                         </a>
