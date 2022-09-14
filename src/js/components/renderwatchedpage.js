@@ -10,7 +10,9 @@ function onWatchedBtn(e) {
     if (!parsedObjectWathedfilmes) {
         return;
     } else {
-
+        if (parsedObjectWathedfilmes === [] && refs.imgStub.classList.contains("is-hidden")) {
+            refs.imgStub.classList.remove("is-hidden");
+        } else
         if (!refs.imgStub.classList.contains("is-hidden")){
             refs.imgStub.classList.add("is-hidden");
         };
@@ -27,9 +29,8 @@ function onWatchedBtn(e) {
                             </h2>
                         </a>
                     </li>`;
-    })
-            .join('');
+    });
         refs.library.innerHTML = "";
-    refs.library.insertAdjacentHTML("beforeend", `${libraryWatchedPost}`);
-}
+    refs.library.insertAdjacentHTML("beforeend", `${libraryWatchedPost.slice(refs.numberPage, 6).join("")}`);
+    }
 }
