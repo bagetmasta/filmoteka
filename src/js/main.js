@@ -6,11 +6,16 @@ import { queueBtnLogiq, wachedBtnLogiq } from './add-to-local-storage';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import pagination from './components/tui-pagination';
+import {
+  saveInputLocalStorage,
+  parseInputLocalStorege,
+  savePaginationLocalStorage,
+  parsePaginationLocalStorage,
+} from './save-page-pagonation';
 
 let page = 1;
 let filmName = '';
 let searchByKeyword = true;
-
 const refs = {
   input: document.querySelector('#textInput'),
   form: document.querySelector('.search-bar'),
@@ -29,13 +34,18 @@ const refs = {
 refs.form.addEventListener('submit', fetchFilms);
 refs.paginationList.addEventListener('click', onClickBtnPagination);
 refs.input.addEventListener('input', returnPopularFilms);
-
-fetchPopularFilms(page);
-
+//=====
+refs.input.value = parseInputLocalStorege();
+fetchPopularFilms(parsePaginationLocalStorage() || page);
+if (parseInputLocalStorege() !== '' && parsePaginationLocalStorage() > 1) {
+  fetchNecessaryFilm(parseInputLocalStorege(), parsePaginationLocalStorage());
+}
+//=====
 function returnPopularFilms(e) {
+  saveInputLocalStorage(e.target.value);
   const inputValue = e.target.value;
-
   if (inputValue === '') {
+    savePaginationLocalStorage(1);
     fetchPopularFilms(1);
   }
 }
@@ -45,13 +55,13 @@ function fetchFilms(e) {
   pagination.reset();
   page = 1;
   filmName = e.currentTarget.elements.search.value;
-
+  savePaginationLocalStorage(page);
   return fetchNecessaryFilm(filmName, page);
 }
 
 function onClickBtnPagination(e) {
   page = pagination.getCurrentPage();
-
+  savePaginationLocalStorage(page);
   window.scrollTo({
     top: 0,
     left: 0,
@@ -59,9 +69,9 @@ function onClickBtnPagination(e) {
   });
 
   if (filmName === '') {
-    return fetchPopularFilms(page);
+    return fetchPopularFilms(parsePaginationLocalStorage());
   }
-  return fetchNecessaryFilm(filmName, page);
+  return fetchNecessaryFilm(filmName, parsePaginationLocalStorage());
 }
 
 function fetchPopularFilms(page) {
@@ -79,6 +89,7 @@ function fetchPopularFilms(page) {
       pagination.reset(total_pages * 10);
       renderMarkup(results);
       pagination.movePageTo(page);
+      console.log(page);
     })
     .catch(console.log);
 }
