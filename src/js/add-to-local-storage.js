@@ -4,7 +4,7 @@ export function queueBtnLogiq(obj) {
   const addToWachedButton = document.querySelector('.js-add-to-watched');
   addToQueueButton.addEventListener('click', onAddToQueueButton);
 
-  renderTextBtn(addToQueueButton, STORAGE_KEY, obj);
+  renderTextBtn(addToQueueButton, addToWachedButton, STORAGE_KEY, obj);
 
   function onAddToQueueButton() {
     let localStorageData = [];
@@ -31,7 +31,7 @@ export function wachedBtnLogiq(obj) {
   const addToWachedButton = document.querySelector('.js-add-to-watched');
   addToWachedButton.addEventListener('click', onWachedButtonClick);
 
-  renderTextBtn(addToWachedButton, STORAGE_KEY, obj);
+  renderTextBtn(addToWachedButton, addToQueueButton, STORAGE_KEY, obj);
 
   function onWachedButtonClick() {
     let localStorageData = [];
@@ -81,14 +81,18 @@ function removeFromLocalStorage(STORAGE_KEY, obj) {
 }
 
 // ---------------------- Render Text Btn ----------------------
-function renderTextBtn(refToBtn, STORAGE_KEY, obj) {
+function renderTextBtn(refToActiveBtn, refToDisableeBtn, STORAGE_KEY, obj) {
   let localStorageData = [];
   localStorageData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
   if (localStorageData.map(e => e.id).includes(obj.id)) {
-    changeBtnTextToRemove(refToBtn, STORAGE_KEY);
+    changeBtnTextToRemove(refToActiveBtn, STORAGE_KEY);
+    refToActiveBtn.classList.add('active');
+    addDisableBtn(refToDisableeBtn);
   } else {
-    changeBtnTextToAdd(refToBtn, STORAGE_KEY);
+    changeBtnTextToAdd(refToActiveBtn, STORAGE_KEY);
+    refToActiveBtn.classList.remove('active');
+    removeDisableBtn(refToDisableeBtn);
   }
 }
 
