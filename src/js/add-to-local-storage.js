@@ -11,11 +11,11 @@ export function queueBtnLogiq(obj) {
 
     if (!localStorageData.map(e => e.id).includes(obj.id)) {
       addToLocalStorage(STORAGE_KEY, obj);
-      renderTextBtn(addToQueueButton, STORAGE_KEY, obj);
+      changeBtnTextToRemove(addToQueueButton, STORAGE_KEY);
       return;
     }
     removeFromLocalStorage(STORAGE_KEY, obj);
-    renderTextBtn(addToQueueButton, STORAGE_KEY, obj);
+    changeBtnTextToAdd(addToQueueButton, STORAGE_KEY);
   }
 }
 
@@ -32,11 +32,11 @@ export function wachedBtnLogiq(obj) {
 
     if (!localStorageData.map(e => e.id).includes(obj.id)) {
       addToLocalStorage(STORAGE_KEY, obj);
-      renderTextBtn(addToWachedButton, STORAGE_KEY, obj);
+      changeBtnTextToRemove(addToWachedButton, STORAGE_KEY);
       return;
     }
     removeFromLocalStorage(STORAGE_KEY, obj);
-    renderTextBtn(addToWachedButton, STORAGE_KEY, obj);
+    changeBtnTextToAdd(addToWachedButton, STORAGE_KEY);
   }
 }
 
