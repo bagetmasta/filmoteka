@@ -1,0 +1,60 @@
+.dark {
+  background-color: #3b4145;
+  .card-list__item {
+    box-shadow: 10px 0px 8px 3px rgba(163, 162, 162, 0.75);
+    filter: brightness(0.8) contrast(1.2);
+  }
+  .card-list__movie-name {
+    color: #fff;
+  }
+
+  .img-stub__item {
+    box-shadow: 7px 0px 8px 3px rgba(163, 162, 162, 0.75);
+    filter: brightness(0.8) contrast(1.2);
+    border-radius: 10px;
+  }
+  .footer {
+    background-color: #75777a;
+  }
+  .footer-container {
+    color: #fff;
+  }
+  .footer-container--btn {
+    color: #fff;
+  }
+  .tui-pagination.tui-is-selected,
+  .tui-pagination strong {
+    color: #fff;
+  }
+  tui-pagination-container strong {
+    color: #fff;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.material-icons {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  display: flex;
+  width: 30px;
+  background: #2a2c2d;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  color: #ccc;
+
+  @include tablet {
+    top: 97px;
+    right: 25px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color--accent-orange;
+  }
+}

@@ -4,6 +4,7 @@ import './js/main';
 import './js/components/onCardLinkClick';
 import './js/components/modal-footer';
 import './js/components/to-animated-card';
+import './js/components/switcher';
 
 // Ниже приянятый пул от Андрея
 // import './js/popular-films';

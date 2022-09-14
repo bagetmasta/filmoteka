@@ -2,6 +2,16 @@
   background-color: #f7f7f7;
 }
 
+.position {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-right: 34px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 133px;
+  }
+}
+
 .footer-container {
   margin: 0 auto;
   font-weight: 400;
