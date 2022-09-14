@@ -37,7 +37,7 @@ refs.input.addEventListener('input', returnPopularFilms);
 //=====
 refs.input.value = parseInputLocalStorege();
 fetchPopularFilms(parsePaginationLocalStorage() || page);
-if (parseInputLocalStorege() !== '' && parsePaginationLocalStorage() > 1) {
+if (parseInputLocalStorege() !== '' && parsePaginationLocalStorage() >= 1) {
   fetchNecessaryFilm(parseInputLocalStorege(), parsePaginationLocalStorage());
 }
 //=====
