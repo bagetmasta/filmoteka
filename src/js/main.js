@@ -1,5 +1,5 @@
 const _ = require('lodash');
-import { onEscapeClose } from './components/onModalCloseBtn';
+import { onEscapeClose } from './components/on-modal-close-btn';
 import renderModal from './template/render-modal';
 import * as genres from '../genres.json';
 import { queueBtnLogiq, wachedBtnLogiq } from './add-to-local-storage';
