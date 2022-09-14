@@ -148,6 +148,15 @@
   }
 }
 
+#tui-pagination-container .tui-first,
+#tui-pagination-container .tui-last,
+#tui-pagination-container .tui-icon-prev,
+#tui-pagination-container .tui-last-child {
+  @include mobile {
+    display: none;
+  }
+}
+
 #tui-pagination-container strong {
   background: #ff6b08;
   border-color: $color--selected-page;
