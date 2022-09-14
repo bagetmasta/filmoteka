@@ -81,7 +81,7 @@
   color: rgba(255, 107, 8, 1);
 
   @include desktop {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
   }
 }
@@ -93,7 +93,9 @@
 }
 
 .card-list__genre {
-  font-size: 15px;
+  @include desktop {
+    font-size: 15px;
+  }
 }
 
 .card-list__ratimg {
