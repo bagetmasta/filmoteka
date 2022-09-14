@@ -2,10 +2,7 @@ const _ = require('lodash');
 import { onEscapeClose } from './components/onModalCloseBtn';
 import renderModal from './template/render-modal';
 import * as genres from '../genres.json';
-import {
-  addToQueueLocalStorage,
-  addToWachedLocalStorage,
-} from './add-to-local-storage';
+import { queueBtnLogiq, wachedBtnLogiq } from './add-to-local-storage';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import pagination from './components/tui-pagination';
@@ -172,8 +169,8 @@ function onModalFilmOpen() {
             filmRait: data.vote_average,
             id: data.id,
           };
-          addToQueueLocalStorage(localSave);
-          addToWachedLocalStorage(localSave);
+          queueBtnLogiq(localSave);
+          wachedBtnLogiq(localSave);
         });
         refs.filmModal.classList.remove('is-hidden');
 
