@@ -1,5 +1,10 @@
 import { refs } from './constants-library';
 import renderGenreMovieByName from './rendergenremovebyname';
+import renderModal from '../template/render-modal';
+
+const animateModal = document.querySelector('.animate-modal');
+const filmModal = document.querySelector('.backdrop');
+const modalFilm = document.querySelector('.modal');
 
 let parsedObjectWathedfilmes = JSON.parse(localStorage.getItem("watched"));
 
@@ -20,7 +25,7 @@ function onWatchedBtn(e) {
         let libraryWatchedPost = parsedObjectWathedfilmes.map(film => {
             renderGenreMovieByName(film);
             return ` <li class="card-list__item">
-                        <a href="" class="card-list__link">
+                        <a href="" class="card-list__link" id=${film.id}>
                             <picture class="card-list_picture">
                             <img src="https://image.tmdb.org/t/p/original${film.filmsImg}" alt="https://yt3.ggpht.com/AAKF_677TIvjFz_9xFF0R6PgiVd0kRpEtY6APSxSDRP65nXg8hkn9NFsz2bRd9_Z37DJ9D_b=s900-c-k-c0x00ffffff-no-rj">
                             </picture>
@@ -33,4 +38,39 @@ function onWatchedBtn(e) {
         refs.library.innerHTML = "";
     refs.library.insertAdjacentHTML("beforeend", `${libraryWatchedPost.slice(refs.numberPage, 6).join("")}`);
     }
+    onModalFilmOpen()
+}
+
+
+function onModalFilmOpen() {
+ 
+    const cardLinks = document.querySelectorAll('.card-list__link');
+    
+    for (let cardLink of cardLinks) {
+        cardLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            let cardId = cardLink.id
+            fetchModal(cardId)
+            filmModal.classList.remove('is-hidden');
+            modalFilm.classList.add('to-animate');
+        })
+    }
+}
+
+function fetchModal(id) {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`
+  )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+      .then(data => {
+      //   renderModal(data);
+      animateModal.innerHTML = renderModal(data);
+      return data;
+    });
 }
