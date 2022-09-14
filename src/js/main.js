@@ -101,10 +101,14 @@ function fetchNecessaryFilm(filmName, page) {
       pagination.reset(total_pages * 10);
       if (results.length < 1) {
         refs.inputError.classList.remove('hide');
+
+        setTimeout(() => {
+          refs.inputError.classList.add('hide');
+        }, 3000);
+
         return;
       }
 
-      refs.inputError.classList.add('hide');
       renderMarkup(results);
       pagination.movePageTo(page);
     })
