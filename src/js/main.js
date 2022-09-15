@@ -4,7 +4,7 @@ import renderModal from './template/render-modal';
 import * as genres from '../genres.json';
 import { queueBtnLogiq, wachedBtnLogiq } from './add-to-local-storage';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.min.css';
 import pagination from './components/tui-pagination';
 
 let page = 1;
