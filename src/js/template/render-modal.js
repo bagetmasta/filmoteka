@@ -49,7 +49,7 @@ export default function renderModal(data) {
          <div class="modal-content-scroll"><p class="about--text">${data.overview}</p></div>
         </div>
         <div class="conteiner--btn">
-          <button class="btn--modal active js-add-to-watched">add to Watched</button>
+          <button class="btn--modal js-add-to-watched">add to Watched</button>
           <button class="btn--modal js-add-to-queue">add to queue</button>
         </div>
       </div>
