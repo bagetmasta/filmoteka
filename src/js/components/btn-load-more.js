@@ -28,7 +28,7 @@ function onClickBtnLoadMore() {
 function filmType() {
   if (refs.watchedBtn.classList.contains(ACTIVE_ELEMENT_CLASS_NAME)) {
     return JSON.parse(localStorage.getItem('watched'));
-  } else if (refs.quee.classList.contains(ACTIVE_ELEMENT_CLASS_NAME)) {
+  } else if (refs.queueBtn.classList.contains(ACTIVE_ELEMENT_CLASS_NAME)) {
     return JSON.parse(localStorage.getItem('queue'));
   } else {
     return;
