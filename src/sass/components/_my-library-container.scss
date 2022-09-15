@@ -6,7 +6,8 @@
 .img-stub__item {
   display: block;
   width: 100%;
-@include tablet {
+
+  @include tablet {
     width: 336px;
   }
 
@@ -17,8 +18,9 @@
 }
 .img-stub__title {
   text-align: center;
+  font-size: 24px;
+  margin: 0 auto;
 }
 .img-stub__list.is-hidden {
   display: none;
 }
-

@@ -96,9 +96,9 @@
   // padding: 15px;
   justify-content: center;
   @include mobile {
-      top: -50px;
-      right: -38px;
-    }
+    top: -50px;
+    right: -38px;
+  }
 
   @include tablet {
     top: -40px;
@@ -131,22 +131,22 @@
   background-color: #000;
   border-radius: 2px;
   transform: rotate(45deg);
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 
   @include mobile {
-      height: 3px;
-      width: 20px;
-    }
+    height: 3px;
+    width: 20px;
+  }
 
-    @include tablet {
-      height: 3px;
-      width: 25px;
-    }
+  @include tablet {
+    height: 3px;
+    width: 25px;
+  }
 
-    @include desktop {
-      height: 3px;
-      width: 30px;
-    }
+  @include desktop {
+    height: 3px;
+    width: 30px;
+  }
 }
 
 .cl-btn-2 .rightleft {
@@ -157,21 +157,21 @@
   background-color: #000;
   border-radius: 2px;
   transform: rotate(-45deg);
-  transition: all .3s ease-in;
-    @include mobile {
-        height: 3px;
-        width: 20px;
-    }
+  transition: all 0.3s ease-in;
+  @include mobile {
+    height: 3px;
+    width: 20px;
+  }
 
-    @include tablet {
-      height: 3px;
-      width: 25px;
-    }
+  @include tablet {
+    height: 3px;
+    width: 25px;
+  }
 
-    @include desktop {
-      height: 3px;
-      width: 30px;
-    }
+  @include desktop {
+    height: 3px;
+    width: 30px;
+  }
 }
 
 .cl-btn-2 .close-btn {
@@ -182,7 +182,7 @@
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
   opacity: 0;
 }
 
@@ -352,6 +352,32 @@
   @include desktop {
     width: 136px;
   }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    60%,
+    100% {
+      transform: translateY(0);
+      transform: translateY(0);
+      font-weight: 700;
+    }
+
+    40% {
+      transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+
+    80% {
+      transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    animation: bounce 1s;
+  }
 }
 
 .active {
@@ -363,4 +389,17 @@
   @include tablet {
     padding: 14px 9px 12px 9px;
   }
+}
+
+.modal-content-scroll {
+  max-height: 160px;
+  overflow: hidden;
+  display: flex;
+}
+
+.modal-content-scroll p {
+  overflow-y: scroll;
+}
+.modal-content-scroll p::-webkit-scrollbar {
+  width: 0;
 }

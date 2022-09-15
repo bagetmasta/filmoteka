@@ -1,31 +1,60 @@
-// const refs = {
-//   reloading: document.querySelector('.reloading'),
-//   preloaderGooey: document.querySelector('.preloader-gooey'),
-//   btnLoadMore: document.querySelector('.btn-load-more'),
-// };
+import { renderListWatched } from './renderwatchedpage';
+import { refs } from './constants-library';
 
-// refs.reloading.classList.remove('is-hidden');
-// refs.btnLoadMore.classList.remove('is-hidden');
+const AMOUNT = 6;
+const ACTIVE_ELEMENT_CLASS_NAME = 'library__button-current';
+let valueIdx = 12;
 
-// refs.btnLoadMore.addEventListener('click', onClickBtnLoadMore);
+refs.btnLoadMore.addEventListener('click', onClickBtnLoadMore);
 
-// function onClickBtnLoadMore() {
-//   refs.preloaderGooey.classList.remove('is-hidden');
-//   refs.btnLoadMore.classList.add('is-hidden');
+function onClickBtnLoadMore() {
+  preloaderGooeyIsActive();
 
-//   setTimeout(() => {
-//     console.log('click');
-//     refs.preloaderGooey.classList.add('is-hidden');
-//     refs.btnLoadMore.classList.remove('is-hidden');
-//     console.log('click');
-//   }, 3000);
-// }
+  setTimeout(() => {
+    btnLoadMoreIsVisible();
 
-// refs.btnLoadMore.classList.remove('is-hidden');
-// refs.btnLoadMore.classList.add('is-hidden');
+    const typeFilmsForReloading = filmType();
 
-// refs.preloaderGooey.classList.remove('is-hidden');
-// refs.preloaderGooey.classList.add('is-hidden');
+    refs.library.insertAdjacentHTML(
+      'beforeend',
+      createBlockForLoadMore(typeFilmsForReloading)
+    );
+    valueIdx += AMOUNT;
 
-// refs.reloading.classList.remove('is-hidden');
-// refs.reloading.classList.add('is-hidden');
+    reloadingIsNotVisible(typeFilmsForReloading);
+  }, 1000);
+}
+
+function filmType() {
+  if (refs.watchedBtn.classList.contains(ACTIVE_ELEMENT_CLASS_NAME)) {
+    return JSON.parse(localStorage.getItem('watched'));
+  } else if (refs.quee.classList.contains(ACTIVE_ELEMENT_CLASS_NAME)) {
+    return JSON.parse(localStorage.getItem('queue'));
+  } else {
+    return;
+  }
+}
+
+function createBlockForLoadMore(arr) {
+  const currentIdxLastEl = refs.library.children.length - 1;
+  return arr
+    .filter((_, idx) => currentIdxLastEl < idx && idx < valueIdx)
+    .map(film => renderListWatched(film))
+    .join('');
+}
+
+function preloaderGooeyIsActive() {
+  refs.btnLoadMore.classList.add('is-hidden');
+  refs.preloaderGooey.classList.remove('is-hidden');
+}
+
+function btnLoadMoreIsVisible() {
+  refs.preloaderGooey.classList.add('is-hidden');
+  refs.btnLoadMore.classList.remove('is-hidden');
+}
+
+function reloadingIsNotVisible(arr) {
+  if (arr.length <= refs.library.children.length) {
+    refs.reloading.classList.add('is-hidden');
+  }
+}
