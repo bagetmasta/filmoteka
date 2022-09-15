@@ -9,6 +9,10 @@ const queueRefs = {
   watchedBtn: document.querySelector(
     '.library__buttons__item .library__button'
   ),
+  library: document.querySelector('.my-library__card-list'),
+  reloading: document.querySelector('.reloading'),
+  btnLoadMore: document.querySelector('.btn-load-more'),
+  preloaderGooey: document.querySelector('.preloader-gooey'),
 };
 const { queueBtn, libraryList, emptyImage } = queueRefs;
 
@@ -154,8 +158,10 @@ function renderModal(data) {
 }
 
 function renderQueue(queue) {
-  const markup = queue.map(item => {
-    return `<li class="card-list__item">
+  const markup = queue
+    .filter((_, idx) => idx < 6)
+    .map(item => {
+      return `<li class="card-list__item">
                     <a class="card-list__link">
                         <picture class="card-list_picture">
                         <img src="https://image.tmdb.org/t/p/original${
@@ -167,8 +173,8 @@ function renderQueue(queue) {
                               item.filmsName
                             }</span>
                             ${renderGenreMovieByName(item)} | ${new Date(
-      item.filmRelise
-    ).getFullYear()}
+        item.filmRelise
+      ).getFullYear()}
                             <span class="card-list__ratimg">${item.filmRait.toFixed(
                               1
                             )}</span>
@@ -176,8 +182,12 @@ function renderQueue(queue) {
                     </a>
                 </li>
             `;
-  });
+    });
   libraryList.innerHTML = markup.join('');
+  if (queueRefs.libraryList.children.length < queue.length) {
+    queueRefs.reloading.classList.remove('is-hidden');
+    queueRefs.btnLoadMore.classList.remove('is-hidden');
+  }
 }
 
 function isEmpty(array, image) {

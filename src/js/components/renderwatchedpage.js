@@ -17,7 +17,7 @@ function onWatchedBtn(e) {
   renderAndModalOpen();
 }
 
-function renderAndModalOpen() {
+export function renderAndModalOpen() {
   refs.library.innerHTML = '';
 
   refs.queueBtn.classList.remove('library__button-current');
@@ -88,6 +88,7 @@ function onModalFilmOpen() {
       let cardId = cardLink.id;
       fetchModal(cardId).then(data => {
         const year = new Date(data.release_date).getFullYear();
+
         const localSave = {
           filmsName: data.original_title,
           filmsImg: data.poster_path,
