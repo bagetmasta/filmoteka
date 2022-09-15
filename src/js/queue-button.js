@@ -6,12 +6,17 @@ const queueRefs = {
   queueBtn: document.querySelector('[data-queue]'),
   libraryList: document.querySelector('.my-library__card-list'),
   emptyImage: document.querySelector('.img-stub__list'),
+  watchedBtn: document.querySelector(
+    '.library__buttons__item .library__button'
+  ),
 };
 const { queueBtn, libraryList, emptyImage } = queueRefs;
 
 queueBtn.addEventListener('click', showQueue);
 
 function showQueue() {
+  queueRefs.queueBtn.classList.add('library__button-current');
+  queueRefs.watchedBtn.classList.remove('library__button-current');
   const queueList = JSON.parse(localStorage.getItem('queue'));
   renderQueue(queueList);
   const filmsOnPage = document.querySelectorAll('.card-list__item');
@@ -42,16 +47,19 @@ function showQueue() {
       const buttonsRefs = {
         btnRemoveQueue: document.querySelector('.js-add-to-queue'),
         btnAddToWatched: document.querySelector('.js-add-to-watched'),
-      }
+      };
       const { btnRemoveQueue, btnAddToWatched } = buttonsRefs;
 
-      btnAddToWatched.addEventListener('click', replaceFilmToWatched)
+      btnAddToWatched.addEventListener('click', replaceFilmToWatched);
       btnRemoveQueue.addEventListener('click', removeQueueStorage);
 
       function replaceFilmToWatched() {
         const filmCard = document.querySelectorAll('.card-list__movie-name');
         const watchedLocalStorage = JSON.parse(localStorage.getItem('watched'));
-        const duplicate = watchedLocalStorage.some(item => item.filmsName === filmCard[index].textContent)
+        const duplicate = watchedLocalStorage.some(
+          item => item.filmsName === filmCard[index].textContent
+        );
+
         if (duplicate) {
           Notify.warning('Sorry, but this movie is alredy watched');
         } else {
@@ -79,7 +87,6 @@ function replaceFromQueueToWatched(callback) {
   watchedLocalStorage.push(movedFilms[0]);
   localStorage.setItem('watched', JSON.stringify(watchedLocalStorage));
 }
-
 
 function removeLocalData(data, idx) {
   const removedFilm = data.splice(idx, 1);
@@ -159,8 +166,12 @@ function renderQueue(queue) {
                             <span class="card-list__movie-name">${
                               item.filmsName
                             }</span>
-                            ${renderGenreMovieByName(item)} | ${new Date(item.filmRelise).getFullYear()}
-                            <span class="card-list__ratimg">${item.filmRait.toFixed(1)}</span>
+                            ${renderGenreMovieByName(item)} | ${new Date(
+      item.filmRelise
+    ).getFullYear()}
+                            <span class="card-list__ratimg">${item.filmRait.toFixed(
+                              1
+                            )}</span>
                         </h2>
                     </a>
                 </li>
@@ -170,5 +181,7 @@ function renderQueue(queue) {
 }
 
 function isEmpty(array, image) {
-  array.length > 0 ? image.style.display = 'none' : image.style.display = 'flex';
+  array.length > 0
+    ? (image.style.display = 'none')
+    : (image.style.display = 'flex');
 }

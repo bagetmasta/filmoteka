@@ -7,4 +7,5 @@ export const refs = {
   reloading: document.querySelector('.reloading'),
   btnLoadMore: document.querySelector('.btn-load-more'),
   preloaderGooey: document.querySelector('.preloader-gooey'),
+  queueBtn: document.querySelector('[data-queue]'),
 };
