@@ -68,6 +68,7 @@ export function renderListWatched(film) {
     'beforeend',
     `${libraryWatchedPost.slice(refs.numberPage, 6).join('')}`
   );
+  onModalFilmOpen();
 }
 
 onModalFilmOpen();
