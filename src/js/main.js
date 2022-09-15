@@ -86,7 +86,6 @@ function fetchPopularFilms(page) {
       pagination.reset(total_pages * 10);
       renderMarkup(results);
       pagination.movePageTo(page);
-      console.log(page);
     })
     .catch(console.log);
 }
