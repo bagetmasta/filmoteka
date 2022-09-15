@@ -14,6 +14,10 @@ refs.watchedBtn.addEventListener('click', onWatchedBtn);
 
 function onWatchedBtn(e) {
   e.preventDefault();
+  renderAndModalOpen();
+}
+
+function renderAndModalOpen() {
   refs.library.innerHTML = '';
 
   refs.queueBtn.classList.remove('library__button-current');
@@ -47,6 +51,8 @@ function onWatchedBtn(e) {
 
   onModalFilmOpen();
 }
+
+renderAndModalOpen();
 
 onModalFilmOpen();
 
