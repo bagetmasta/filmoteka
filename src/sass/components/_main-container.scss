@@ -33,6 +33,7 @@
   border-radius: 3% 3% 2% 2%;
   overflow: hidden;
   box-shadow: 15px 0px 8px 3px rgba(50, 50, 50, 0.75);
+  cursor: pointer;
 
   @include tablet {
     flex: calc((100% / 2) - 1rem\2);
