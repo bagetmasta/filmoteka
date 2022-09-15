@@ -9,18 +9,28 @@ const queueRefs = {
   watchedBtn: document.querySelector(
     '.library__buttons__item .library__button'
   ),
-  library: document.querySelector('.my-library__card-list'),
+
   reloading: document.querySelector('.reloading'),
   btnLoadMore: document.querySelector('.btn-load-more'),
   preloaderGooey: document.querySelector('.preloader-gooey'),
 };
+
 const { queueBtn, libraryList, emptyImage } = queueRefs;
 
 queueBtn.addEventListener('click', showQueue);
 
 function showQueue() {
+  libraryList.innerHTML = '';
+  queueRefs.emptyImage.classList.remove('is-hidden');
+  queueRefs.reloading.classList.add('is-hidden');
+
   queueRefs.queueBtn.classList.add('library__button-current');
   queueRefs.watchedBtn.classList.remove('library__button-current');
+
+  if (!JSON.parse(localStorage.getItem('queue'))) {
+    return;
+  }
+
   const queueList = JSON.parse(localStorage.getItem('queue'));
   renderQueue(queueList);
   const filmsOnPage = document.querySelectorAll('.card-list__item');
