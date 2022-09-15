@@ -1,6 +1,11 @@
 import { cloneWith } from 'lodash';
 import { refs } from './constants-library';
 import renderGenreMovieByName from './rendergenremovebyname';
+import renderModal from '../template/render-modal';
+
+const animateModal = document.querySelector('.animate-modal');
+const filmModal = document.querySelector('.backdrop');
+const modalFilm = document.querySelector('.modal');
 
 let parsedObjectWathedfilmes = JSON.parse(localStorage.getItem('watched'));
 
@@ -35,8 +40,12 @@ function onWatchedBtn(e) {
 
 export function renderListWatched(film) {
   renderGenreMovieByName(film);
-  return ` <li class="card-list__item">
-                        <a href="" class="card-list__link">
+
+  let libraryWatchedPost = parsedObjectWathedfilmes.map(film => {
+    renderGenreMovieByName(film);
+    return ` <li class="card-list__item">
+                        <a href="" class="card-list__link" id=${film.id}>
+
                             <picture class="card-list_picture">
                             <img src="https://image.tmdb.org/t/p/original${
                               film.filmsImg
@@ -48,9 +57,49 @@ export function renderListWatched(film) {
                             <span class="card-list__genre">${
                               refs.movieGenre
                             } | ${
-    film.filmRelise
-  }</span><span class="card-list__ratimg">${film.filmRait.toFixed(2)}</span>
+      film.filmRelise
+    }</span><span class="card-list__ratimg">${film.filmRait.toFixed(2)}</span>
                             </h2>
                         </a>
                     </li>`;
+  });
+  refs.library.innerHTML = '';
+  refs.library.insertAdjacentHTML(
+    'beforeend',
+    `${libraryWatchedPost.slice(refs.numberPage, 6).join('')}`
+  );
+}
+
+onModalFilmOpen();
+
+function onModalFilmOpen() {
+  const cardLinks = document.querySelectorAll('.card-list__link');
+
+  for (let cardLink of cardLinks) {
+    cardLink.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      let cardId = cardLink.id;
+      fetchModal(cardId);
+      filmModal.classList.remove('is-hidden');
+      modalFilm.classList.add('to-animate');
+    });
+  }
+}
+
+function fetchModal(id) {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=dfb50cc3b16f950a5a6b0ea437e17f05&language=en-US`
+  )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      //   renderModal(data);
+      animateModal.innerHTML = renderModal(data);
+      return data;
+    });
 }
