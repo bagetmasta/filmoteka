@@ -5,10 +5,5 @@
   "reporters": [
     "...",
     "parcel-reporter-clean-dist"
-  ],
-  "transformers": {
-    "*.{jpg,png,jpeg}": [
-      "@parcel/transformer-raw"
-    ]
-  }
+  ]
 }
